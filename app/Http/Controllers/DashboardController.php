@@ -120,7 +120,6 @@ class DashboardController extends Controller
     public function updatepassword(Request $request)
     {
         $request->validate([
-            'nouser' => 'required|numeric',
             'password' => 'required|string|min:8',
             'password_baru' => 'required|string|min:8',
             'konfirmasi_password' => 'required'
@@ -138,5 +137,4 @@ class DashboardController extends Controller
         $user->save();
         return back()->with('pesan', 'Kata sandi berhasil diperbarui');
     }
-
 }

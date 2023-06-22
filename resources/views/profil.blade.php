@@ -1,9 +1,9 @@
 @extends('layout.master')
 @section('title')
-    Profil Pegawai - {{ $companyname }}
+    Profil - {{ $companyname }}
 @endsection
 @section('sidebar')
-    @if(Auth::user()->role == 0)
+    @if (Auth::user()->role == 0)
         @include('layout.sidebar-manajemen')
     @else
         @include('layout.sidebar-pegawai')
@@ -61,12 +61,12 @@
                                             <div class="col-md-8 form-group">
                                                 <input required type="tel" class="form-control" name="nouser"
                                                     placeholder="Nomor Telepon"
-                                                    value="{{ old('nouser', Auth::user()->no) }}"
-                                                    data-parsley-type="number"
+                                                    value="{{ old('nouser', Auth::user()->no) }}" data-parsley-type="number"
                                                     data-parsley-error-message="Masukkan format nomor telepon yang valid." />
                                             </div>
                                             <div class="col-sm-12 d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-primary me-1 mb-1">Ganti Profil</button>
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">Ganti
+                                                    Profil</button>
                                             </div>
                                         </div>
                                     </div>
@@ -84,49 +84,49 @@
                         <div class="card-header">
                             <h4 class="card-title">Ganti Kata Sandi</h4>
                         </div>
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <form class="form form-horizontal" method="POST" action="/update-password"
-                                        data-parsley-validate>
-                                        @csrf
-                                        <div class="form-body">
-                                            <div class="row">
-                                                <input type="hidden" name="nouser"
-                                                    value="{{ old('nouser', Auth::user()->no) }}" />
-                                                <div class="col-md-4">
-                                                    <label>Password Sekarang</label>
-                                                </div>
-                                                <div class="col-md-8 form-group">
-                                                    <input type="password" class="form-control" name="password"
-                                                        placeholder="Password Sekarang" data-parsley-minlength="8"
-                                                        data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8." />
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>Password Baru</label>
-                                                </div>
-                                                <div class="col-md-8 form-group">
-                                                    <input type="password" id="password-baru" class="form-control"
-                                                        name="password_baru" placeholder="Password Baru"
-                                                        data-parsley-minlength="8"
-                                                        data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8." />
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>Konfirmasi Password</label>
-                                                </div>
-                                                <div class="col-md-8 form-group">
-                                                    <input type="password" class="form-control" name="konfirmasi_password"
-                                                        placeholder="Konfirmasi Password"
-                                                        data-parsley-equalto="#password-baru"
-                                                        data-parsley-error-message="Kata sandi tidak cocok." />
-                                                </div>
-                                                <div class="col-sm-12 d-flex justify-content-end">
-                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Ganti Password</button>
-                                                </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form class="form form-horizontal" method="POST" action="/update-password"
+                                    data-parsley-validate>
+                                    @csrf
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <input type="hidden" name="nouser"
+                                                value="{{ old('nouser', Auth::user()->no) }}" />
+                                            <div class="col-md-4">
+                                                <label>Password Sekarang</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="password" class="form-control" name="password"
+                                                    placeholder="Password Sekarang" data-parsley-minlength="8"
+                                                    data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8." />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Password Baru</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="password" id="password-baru" class="form-control"
+                                                    name="password_baru" placeholder="Password Baru"
+                                                    data-parsley-minlength="8"
+                                                    data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8." />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Konfirmasi Password</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="password" class="form-control" name="konfirmasi_password"
+                                                    placeholder="Konfirmasi Password" data-parsley-equalto="#password-baru"
+                                                    data-parsley-error-message="Kata sandi tidak cocok." />
+                                            </div>
+                                            <div class="col-sm-12 d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">Ganti
+                                                    Password</button>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>

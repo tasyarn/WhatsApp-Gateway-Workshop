@@ -317,8 +317,7 @@
                         <label>Email: </label>
                         <div class="form-group">
                             <input required type="email" name="email" placeholder="Email" class="form-control"
-                                data-parsley-type="email"
-                                data-parsley-error-message="Masukkan format email yang valid." />
+                                data-parsley-type="email" data-parsley-error-message="Masukkan format email yang valid." />
                         </div>
                         <label>Nomor Telepon: </label>
                         <div class="form-group">

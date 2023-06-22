@@ -15,10 +15,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
-Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
-Route::get('/pegawai', [DashboardController::class, "indexpegawai"]);
-Route::get('/pegawai/member', [DashboardController::class, "memberpegawai"]);
+
 Route::get('/profil', [DashboardController::class, "profil"]);
 
 Route::post('/update-profil', [DashboardController::class, "updateprofile"]);
@@ -28,3 +25,14 @@ Route::get('/login', [AuthController::class, "indexlogin"]);
 Route::post('/login', [AuthController::class, "login"]);
 // Route::get('/cari', [LandingController::class, 'cari'])->name('cari');
 Route::post('/logout', [AuthController::class, "logout"]);
+
+/* Dashboard Manajemen */
+Route::group(['middleware' => ['auth', 'role:0']], function () {
+    Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
+    Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
+});
+
+Route::group(['middleware' => ['auth', 'role:1']], function () {
+    Route::get('/pegawai', [DashboardController::class, "indexpegawai"]);
+    Route::get('/pegawai/member', [DashboardController::class, "memberpegawai"]);
+});
