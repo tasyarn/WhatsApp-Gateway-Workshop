@@ -30,6 +30,7 @@ Route::post('/logout', [AuthController::class, "logout"]);
 Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
     Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
+    Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {

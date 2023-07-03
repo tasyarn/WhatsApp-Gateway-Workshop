@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Setting;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Chat;
 use App\Models\User;
+use App\Models\Setting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
@@ -27,6 +28,17 @@ class DashboardController extends Controller
             // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
             // 'nominalterbanyak' => $nominalterbanyak,
             // 'donasiterbanyak' => $donasiterbanyak,
+        ]);
+    }
+
+    public function chatmanajemen()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $chats = Chat::all();
+        return view('manajemen.chat', [
+            'companyname' => $companyname,
+            'chats' => $chats
         ]);
     }
 
