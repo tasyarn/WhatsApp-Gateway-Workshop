@@ -79,7 +79,7 @@
                   </li>
 
                   <li class="submenu-item">
-                    <a href="table-datatable-jquery.html" class="submenu-link">Data Pasien</a>
+                    <a href="{{ route('pasien.index') }}" class="submenu-link">Data Pasien</a>
                   </li>
 
                   <li class="submenu-item">

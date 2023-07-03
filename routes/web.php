@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
     Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
     Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
+    Route::get('/manajemen/pasien', [MemberController::class,'index'])->name('pasien.index');
+    Route::post('/manajemen/pasien', [MemberController::class,'store'])->name('pasien.store');
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {
