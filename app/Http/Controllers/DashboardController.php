@@ -8,6 +8,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Member;
 
 class DashboardController extends Controller
 {
@@ -148,5 +149,25 @@ class DashboardController extends Controller
 
         $user->save();
         return back()->with('pesan', 'Kata sandi berhasil diperbarui');
+    }
+    function dataPasien() {
+
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        return view("manajemen.datapasien",compact('companyname'));
+    }
+
+    public function datapasienpost(Request $request)
+    {
+
+        $data = $request->validate([
+            'id_users' => 'required',
+            'nama_member' => 'required|string',
+            'alamat_member' => 'required|string',
+            'no_member' => 'required|string'
+        ]);
+        Member::create($data);
+
+        return back();
     }
 }

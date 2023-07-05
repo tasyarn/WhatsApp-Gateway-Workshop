@@ -2,7 +2,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                {{-- <a href="/manajemen">{{ $companyname }}</a> --}}
+                <a href="/manajemen">{{ $companyname }}</a>
             </div>
             <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -79,11 +79,11 @@
                   </li>
 
                   <li class="submenu-item">
-                    <a href="{{ route('pasien.index') }}" class="submenu-link">Data Pasien</a>
+                    <a href="/manajemen/data-pasien" class="submenu-link">Data Pasien</a>
                   </li>
 
                   <li class="submenu-item">
-                    <a href="/manajemen/data-obat" class="submenu-link">Data Obat</a>
+                    <a href="table-datatable-jquery.html" class="submenu-link">Data Obat</a>
                   </li>
                 </ul>
               </li>
