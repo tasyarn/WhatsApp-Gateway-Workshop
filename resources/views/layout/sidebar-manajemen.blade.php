@@ -49,7 +49,7 @@
             <li class="sidebar-item {{ request()->is('manajemen/chat*') ? 'active' : '' }}">
                 <a href="/manajemen/chat" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Pengelolaan Chat</span>
+                    <span>Chat</span>
                 </a>
             </li>
 
@@ -60,33 +60,19 @@
                 </a>
             </li>
 
+            <li class="sidebar-item {{ request()->is('manajemen/inputpegawai*') ? 'active' : '' }}">
+                <a href="/manajemen/inputpegawai" class="sidebar-link">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Data Pegawai</span>
+                </a>
+            </li>
+
             <li class="sidebar-item {{ request()->is('manajemen/rekap-pembelian*') ? 'active' : '' }}">
                 <a href="/manajemen/rekap-pembelian" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>Rekap Pembelian</span>
                 </a>
             </li>
-
-            <li class="sidebar-item has-sub">
-                <a href="#" class="sidebar-link">
-                  <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                  <span>Data Master</span>
-                </a>
-
-                <ul class="submenu submenu-open" style="--submenu-height: 86px;">
-                  <li class="submenu-item">
-                    <a href="table-datatable.html" class="submenu-link">Data Pegawai</a>
-                  </li>
-
-                  <li class="submenu-item">
-                    <a href="/manajemen/data-pasien" class="submenu-link">Data Pasien</a>
-                  </li>
-
-                  <li class="submenu-item">
-                    <a href="table-datatable-jquery.html" class="submenu-link">Data Obat</a>
-                  </li>
-                </ul>
-              </li>
         </ul>
     </div>
 </div>

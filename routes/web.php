@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +30,7 @@ Route::post('/logout', [AuthController::class, "logout"]);
 Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
     Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
+    Route::get('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
     Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
     Route::get('/manajemen/data-pasien', [DashboardController::class, "dataPasien"]);
     Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);

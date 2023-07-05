@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chat;
-use App\Models\User;
-use App\Models\Setting;
 use Illuminate\Http\Request;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Member;
 
 class DashboardController extends Controller
 {
@@ -32,14 +30,42 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function chatmanajemen()
+    public function inputpegawai()
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
-        $chats = Chat::all();
-        return view('manajemen.chat', [
+        // $jumlahuser = User::all()->where('role', 1)->count();
+        // $jumlahcampaign = Campaign::all()->count();
+        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
+        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
+        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        return view('manajemen.inputpegawai', [
             'companyname' => $companyname,
-            'chats' => $chats
+            // 'jumlahuser' => $jumlahuser,
+            // 'jumlahcampaign' => $jumlahcampaign,
+            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
+            // 'nominalterbanyak' => $nominalterbanyak,
+            // 'donasiterbanyak' => $donasiterbanyak,
+        ]);
+    }
+    public function editpegawai()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        // $jumlahuser = User::all()->where('role', 1)->count();
+        // $jumlahcampaign = Campaign::all()->count();
+        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
+        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
+        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        return view('manajemen.editpegawai', [
+            'companyname' => $companyname,
+            // 'jumlahuser' => $jumlahuser,
+            // 'jumlahcampaign' => $jumlahcampaign,
+            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
+            // 'nominalterbanyak' => $nominalterbanyak,
+            // 'donasiterbanyak' => $donasiterbanyak,
         ]);
     }
 
@@ -149,25 +175,5 @@ class DashboardController extends Controller
 
         $user->save();
         return back()->with('pesan', 'Kata sandi berhasil diperbarui');
-    }
-    function dataPasien() {
-
-        $setting = Setting::first();
-        $companyname = $setting->nama_perusahaan;
-        return view("manajemen.datapasien",compact('companyname'));
-    }
-
-    public function datapasienpost(Request $request)
-    {
-
-        $data = $request->validate([
-            'id_users' => 'required',
-            'nama_member' => 'required|string',
-            'alamat_member' => 'required|string',
-            'no_member' => 'required|string'
-        ]);
-        Member::create($data);
-
-        return back();
     }
 }
