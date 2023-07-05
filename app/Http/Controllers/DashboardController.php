@@ -2,21 +2,12 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< Updated upstream
 use Illuminate\Http\Request;
-<<<<<<< Updated upstream
-use App\Models\Setting;
-=======
 use App\Models\templatePesan;
->>>>>>> Stashed changes
 use Illuminate\Support\Facades\Auth;
-=======
 use App\Models\Chat;
->>>>>>> Stashed changes
 use App\Models\User;
 use App\Models\Setting;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller

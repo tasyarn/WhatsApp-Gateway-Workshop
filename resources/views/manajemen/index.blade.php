@@ -90,11 +90,7 @@
                             <h4>Responses Time</h4>
                         </div>
                         <div class="card-body">
-<<<<<<< Updated upstream
                             <div id="bar"></div>
-=======
-                            <div id="chart-responses-time"></div>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
@@ -215,12 +211,7 @@
             </div>
         </div>
     </div>
-<<<<<<< Updated upstream
 <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="assets/static/js/pages/ui-apexchart.js"></script>
-=======
-    <script src="/assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="/assets/static/js/pages/dashboard.js"></script>
->>>>>>> Stashed changes
 @endsection
 

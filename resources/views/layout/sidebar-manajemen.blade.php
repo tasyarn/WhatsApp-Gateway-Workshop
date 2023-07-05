@@ -46,17 +46,10 @@
                 </a>
             </li>
 
-<<<<<<< Updated upstream
-            <li class="sidebar-item {{ request()->is('manajemen/chat*') ? 'active' : '' }}">
-                <a href="/manajemen/chat" class="sidebar-link">
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Chat</span>
-=======
             <li class="sidebar-item has-sub">
                 <a href="#" class="sidebar-link">
                   <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                   <span>Pengelolaan Chat</span>
->>>>>>> Stashed changes
                 </a>
 
                 <ul class="submenu submenu-open" style="--submenu-height: 86px;">
