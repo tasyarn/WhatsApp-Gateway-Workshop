@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Chat;
 use App\Models\User;
 use App\Models\Setting;
+use App\Models\Member;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
@@ -131,6 +132,7 @@ class DashboardController extends Controller
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
+        $members = Member::all();
         // $jumlahuser = User::all()->where('role', 1)->count();
         // $jumlahcampaign = Campaign::all()->count();
         // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
@@ -140,6 +142,7 @@ class DashboardController extends Controller
 
         return view('pegawai.member', [
             'companyname' => $companyname,
+            'members' => $members
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
             // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,

@@ -2,7 +2,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                {{-- <a href="/manajemen">{{ $companyname }}</a> --}}
+                <a href="/manajemen">{{ $companyname }}</a>
             </div>
             <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -70,8 +70,8 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ request()->is('manajemen/inputpegawai*') ? 'active' : '' }}">
-                <a href="/manajemen/inputpegawai" class="sidebar-link">
+            <li class="sidebar-item {{ request()->is('manajemen/pegawai*') ? 'active' : '' }}">
+                <a href="/manajemen/pegawai" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>Data Pegawai</span>
                 </a>
