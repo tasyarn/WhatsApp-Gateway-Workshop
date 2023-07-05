@@ -132,7 +132,6 @@ class DashboardController extends Controller
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
-        $members = Member::all();
         // $jumlahuser = User::all()->where('role', 1)->count();
         // $jumlahcampaign = Campaign::all()->count();
         // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
@@ -142,7 +141,69 @@ class DashboardController extends Controller
 
         return view('pegawai.member', [
             'companyname' => $companyname,
-            'members' => $members
+            // 'jumlahuser' => $jumlahuser,
+            // 'jumlahcampaign' => $jumlahcampaign,
+            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
+            // 'nominalterbanyak' => $nominalterbanyak,
+            // 'donasiterbanyak' => $donasiterbanyak,
+        ]);
+    }
+
+    public function dataobat()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        // $jumlahuser = User::all()->where('role', 1)->count();
+        // $jumlahcampaign = Campaign::all()->count();
+        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
+        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
+        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+
+        return view('pegawai.obat', [
+            'companyname' => $companyname,
+            // 'jumlahuser' => $jumlahuser,
+            // 'jumlahcampaign' => $jumlahcampaign,
+            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
+            // 'nominalterbanyak' => $nominalterbanyak,
+            // 'donasiterbanyak' => $donasiterbanyak,
+        ]);
+    }
+
+    public function editobat()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        // $jumlahuser = User::all()->where('role', 1)->count();
+        // $jumlahcampaign = Campaign::all()->count();
+        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
+        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
+        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+
+        return view('pegawai.editobat', [
+            'companyname' => $companyname,
+            // 'jumlahuser' => $jumlahuser,
+            // 'jumlahcampaign' => $jumlahcampaign,
+            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
+            // 'nominalterbanyak' => $nominalterbanyak,
+            // 'donasiterbanyak' => $donasiterbanyak,
+        ]);
+    }
+
+    public function chat()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        // $jumlahuser = User::all()->where('role', 1)->count();
+        // $jumlahcampaign = Campaign::all()->count();
+        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
+        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
+        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+
+        return view('pegawai.chat', [
+            'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
             // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,

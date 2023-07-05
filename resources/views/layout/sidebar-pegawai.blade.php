@@ -46,15 +46,15 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ request()->is('pegawai/member') ? 'active' : '' }}">
-                <a href="/pegawai/member" class="sidebar-link">
+            <li class="sidebar-item {{ request()->is('pegawai/chat') ? 'active' : '' }}">
+                <a href="/pegawai/chat" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>Chat</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ request()->is('pegawai/member') ? 'active' : '' }}">
-                <a href="/pegawai/member" class="sidebar-link">
+            <li class="sidebar-item {{ request()->is('pegawai/obat') ? 'active' : '' }}">
+                <a href="/pegawai/obat" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>Data Obat</span>
                 </a>

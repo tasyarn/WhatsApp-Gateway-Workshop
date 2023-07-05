@@ -48,4 +48,8 @@ Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/pegawai/member', [DashboardController::class, "memberpegawai"]);
 
 
+    Route::get('/pegawai/obat', [DashboardController::class, "dataobat"]);
+    Route::get('/pegawai/editobat', [DashboardController::class, "editobat"]);
+    Route::get('/pegawai/chat', [DashboardController::class, "chat"]);
 });
+
