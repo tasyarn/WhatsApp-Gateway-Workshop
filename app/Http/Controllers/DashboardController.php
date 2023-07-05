@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Member;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
@@ -21,45 +22,6 @@ class DashboardController extends Controller
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         return view('manajemen.index', [
-            'companyname' => $companyname,
-            // 'jumlahuser' => $jumlahuser,
-            // 'jumlahcampaign' => $jumlahcampaign,
-            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
-            // 'nominalterbanyak' => $nominalterbanyak,
-            // 'donasiterbanyak' => $donasiterbanyak,
-        ]);
-    }
-
-    public function inputpegawai()
-    {
-        $setting = Setting::first();
-        $companyname = $setting->nama_perusahaan;
-        // $jumlahuser = User::all()->where('role', 1)->count();
-        // $jumlahcampaign = Campaign::all()->count();
-        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
-        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
-        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        return view('manajemen.inputpegawai', [
-            'companyname' => $companyname,
-            // 'jumlahuser' => $jumlahuser,
-            // 'jumlahcampaign' => $jumlahcampaign,
-            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
-            // 'nominalterbanyak' => $nominalterbanyak,
-            // 'donasiterbanyak' => $donasiterbanyak,
-        ]);
-    }
-    public function editpegawai()
-    {
-        $setting = Setting::first();
-        $companyname = $setting->nama_perusahaan;
-        // $jumlahuser = User::all()->where('role', 1)->count();
-        // $jumlahcampaign = Campaign::all()->count();
-        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
-        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
-        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        return view('manajemen.editpegawai', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -114,6 +76,7 @@ class DashboardController extends Controller
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
+        $members = Member::all();
         // $jumlahuser = User::all()->where('role', 1)->count();
         // $jumlahcampaign = Campaign::all()->count();
         // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
@@ -123,6 +86,7 @@ class DashboardController extends Controller
 
         return view('pegawai.member', [
             'companyname' => $companyname,
+            'members' => $members
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
             // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
