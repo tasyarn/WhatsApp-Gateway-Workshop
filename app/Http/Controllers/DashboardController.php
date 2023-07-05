@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< Updated upstream
 use Illuminate\Http\Request;
+<<<<<<< Updated upstream
 use App\Models\Setting;
+=======
+use App\Models\templatePesan;
+>>>>>>> Stashed changes
 use Illuminate\Support\Facades\Auth;
+=======
+use App\Models\Chat;
+>>>>>>> Stashed changes
 use App\Models\User;
+use App\Models\Setting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
@@ -14,19 +25,9 @@ class DashboardController extends Controller
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
-        // $jumlahuser = User::all()->where('role', 1)->count();
-        // $jumlahcampaign = Campaign::all()->count();
-        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
-        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
-        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
+
         return view('manajemen.index', [
             'companyname' => $companyname,
-            // 'jumlahuser' => $jumlahuser,
-            // 'jumlahcampaign' => $jumlahcampaign,
-            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
-            // 'nominalterbanyak' => $nominalterbanyak,
-            // 'donasiterbanyak' => $donasiterbanyak,
         ]);
     }
 
@@ -66,6 +67,31 @@ class DashboardController extends Controller
             // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
             // 'nominalterbanyak' => $nominalterbanyak,
             // 'donasiterbanyak' => $donasiterbanyak,
+        ]);
+    }
+
+    public function templatemanajemen()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $templates = templatePesan::all();
+        return view('manajemen.template', [
+            'companyname' => $companyname,
+            'templates' => $templates
+        ]);
+    }
+
+
+
+    public function indexchat()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $chats = Chat::all();
+
+        return view('manajemen.chat', [
+            'companyname' => $companyname,
+            'chats'=>$chats
         ]);
     }
 

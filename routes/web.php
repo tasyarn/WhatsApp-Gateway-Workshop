@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\templatePesanController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -30,10 +31,19 @@ Route::post('/logout', [AuthController::class, "logout"]);
 Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
     Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
+<<<<<<< Updated upstream
     Route::get('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
     Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
+<<<<<<< Updated upstream
     Route::get('/manajemen/data-pasien', [DashboardController::class, "dataPasien"]);
     Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
+=======
+    Route::get('/manajemen/template', [DashboardController::class, "templatemanajemen"]);
+    Route::get('/addTemplate', [templatePesanController::class, "create"]);
+>>>>>>> Stashed changes
+=======
+    Route::get('/manajemen/chat', [DashboardController::class, "indexchat"]);
+>>>>>>> Stashed changes
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {

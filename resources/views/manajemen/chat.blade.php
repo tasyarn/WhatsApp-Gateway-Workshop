@@ -38,7 +38,6 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table" id="table1">
-                            @foreach ( $chats as $item )
                             <thead>
                                 <tr>
                                     <th>ID Chat</th>
@@ -47,14 +46,13 @@
                                     <th>Tanggal diterima</th>
                                 </tr>
                             </thead>
+                            @foreach ( $chats as $item )
                             <tbody>
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->no_pengirim }}</td>
                                     <td>{{ $item->isi_pesan }}</td>
                                     <td>{{ $item->created_at }}</td>
-                                </tr>
-                            </tbody>
                             @endforeach
                         </table>
                     </div>

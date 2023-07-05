@@ -1,4 +1,4 @@
-var optionsProfileVisit = {
+var optionsResponsesTime = {
   annotations: {
     position: "back",
   },
@@ -15,8 +15,8 @@ var optionsProfileVisit = {
   plotOptions: {},
   series: [
     {
-      name: "sales",
-      data: [9, 20, 30, 20, 10, 20, 30, 20, 10, 20, 30, 20],
+      name: "Chat",
+      data: [9, 10, 30, 20, 10, 20, 30, 20, 10, 20, 30, 20],
     },
   ],
   colors: "#435ebe",
@@ -130,9 +130,9 @@ let optionsIndonesia = {
   colors: ["#dc3545"],
 }
 
-var chartProfileVisit = new ApexCharts(
-  document.querySelector("#chart-profile-visit"),
-  optionsProfileVisit
+var optionsResponsesTime = new ApexCharts(
+  document.querySelector("#chart-responses-time"),
+  optionsResponsesTime
 )
 var chartVisitorsProfile = new ApexCharts(
   document.getElementById("chart-visitors-profile"),
@@ -154,5 +154,6 @@ var chartIndonesia = new ApexCharts(
 chartIndonesia.render()
 chartAmerica.render()
 chartEurope.render()
-chartProfileVisit.render()
+// chartProfileVisit.render()
 chartVisitorsProfile.render()
+optionsResponsesTime.render()
