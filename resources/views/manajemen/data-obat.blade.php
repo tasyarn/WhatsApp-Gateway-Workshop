@@ -59,7 +59,7 @@
                                         <td>
                                             <span class="badge bg-success">Active</span></td>
                                         <td> <div class="buttons">
-                                            <a href="edit-data-obat.html" class="btn btn-primary">Edit</a></div>
+                                            <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -70,7 +70,7 @@
                                             <span class="badge bg-success">Active</span></td>
                                         <td>
                                             <div class="buttons">
-                                                <a href="edit-data-obat.html" class="btn btn-primary">Edit</a></div>
+                                                <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -81,7 +81,7 @@
                                             <span class="badge bg-success">Active</span></td>
                                         <td>
                                             <div class="buttons">
-                                                <a href="edit-data-obat.html" class="btn btn-primary">Edit</a></div>
+                                                <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
                                         </td>
                                     </tr>
                                 </tbody>

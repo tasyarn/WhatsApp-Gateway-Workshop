@@ -40,3 +40,6 @@ Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/pegawai', [DashboardController::class, "indexpegawai"]);
     Route::get('/pegawai/member', [DashboardController::class, "memberpegawai"]);
 });
+Route::get('/manajemen/update-data-obat', function () {
+    return view('/manajemen/update-data-obat');
+});
