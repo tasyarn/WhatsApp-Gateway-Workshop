@@ -97,7 +97,7 @@ class DashboardController extends Controller
                 'companyname' => $companyname,
                 'pegawai' => $pegawai
             ]);
-        
+
     }
 
     public function indexpegawai()
@@ -292,12 +292,26 @@ class DashboardController extends Controller
         return back()->with('pesan', 'Setting website berhasil diperbarui');
     }
 
-    // public function dataobat(Request $request)
-    // {
 
-    //     $setting = Setting::first();
-    //     $companyname = $setting->nama_perusahaan;
-    //     $obats = Obat::all();
-    //     return view("manajemen.data-obat",compact('companyname','obats'));
-    // }
+
+    function dataPasien() {
+
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        return view("manajemen.member.datapasien",compact('companyname'));
+    }
+
+    public function datapasienpost(Request $request)
+    {
+
+        $data = $request->validate([
+            'id_users' => 'required',
+            'nama_member' => 'required|string',
+            'alamat_member' => 'required|string',
+            'no_member' => 'required|string'
+        ]);
+        Member::create($data);
+
+        return back();
+    }
 }
