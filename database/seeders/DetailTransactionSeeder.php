@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
-class SettingSeeder extends Seeder
+class DetailTransactionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +14,6 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('settings')->insert([
-            'nama_perusahaan' => 'WA Gateway',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        //
     }
 }
