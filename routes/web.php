@@ -34,10 +34,10 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
 //     Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
 // <<<<<<< Updated upstream
-    Route::get('/manajemen/data-pasien', [DashboardController::class, "dataPasien"]);
+    Route::get('/manajemen/member', [DashboardController::class, "dataPasien"]);
     Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
 
-    Route::get('/manajemen/template', [DashboardController::class, "templatemanajemen"]);
+    Route::get('/manajemen/chat-template', [DashboardController::class, "templatemanajemen"]);
     Route::get('/addTemplate', [templatePesanController::class, "create"]);
 
     Route::get('/manajemen/chat', [DashboardController::class, "indexchat"]);

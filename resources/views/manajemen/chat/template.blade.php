@@ -41,20 +41,20 @@
                             <thead>
                                 <tr>
                                     <th>ID Template</th>
-                                    <th>ID Admin</th>
+                                    {{-- <th>ID Admin</th> --}}
                                     <th>Template Chat</th>
-                                    <th>Tujuan Template</th>
-                                    <th>Tanggal dibuat</th>
+                                    {{-- <th>Tujuan Template</th> --}}
+                                    {{-- <th>Tanggal dibuat</th> --}}
                                 </tr>
                             </thead>
                             @foreach ( $templates as $item )
                             <tbody>
                                 <tr>
                                     <th>{{ $item->id }}</th>
-                                    <td>{{ $item->User->id }}</td>
-                                    <td>{{ $item->template_pesan }}</td>
-                                    <td>{{ $item->tujuan_template }}</td>
-                                    <td>{{ $item->created_at }}</td>
+                                    {{-- <td>{{ $item->User->id }}</td> --}}
+                                    <td>{{ $item->template_chat }}</td>
+                                    {{-- <td>{{ $item->tujuan_template }}</td> --}}
+                                    {{-- <td>{{ $item->created_at }}</td> --}}
                                 </tr>
                             </tbody>
                             @endforeach

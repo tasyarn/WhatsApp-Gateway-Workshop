@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\templatePesan;
+use App\Models\ChatTemplate;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Chat;
 use App\Models\User;
@@ -33,7 +33,7 @@ class DashboardController extends Controller
         // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        return view('manajemen.inputpegawai', [
+        return view('manajemen.pegawai.inputpegawai', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -52,7 +52,7 @@ class DashboardController extends Controller
         // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        return view('manajemen.editpegawai', [
+        return view('manajemen.pegawai.editpegawai', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -66,8 +66,8 @@ class DashboardController extends Controller
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
-        $templates = templatePesan::all();
-        return view('manajemen.template', [
+        $templates = ChatTemplate::all();
+        return view('manajemen.chat.template', [
             'companyname' => $companyname,
             'templates' => $templates
         ]);
@@ -81,7 +81,7 @@ class DashboardController extends Controller
         $companyname = $setting->nama_perusahaan;
         $chats = Chat::all();
 
-        return view('manajemen.chat', [
+        return view('manajemen.chat.chat', [
             'companyname' => $companyname,
             'chats'=>$chats
         ]);
@@ -97,7 +97,7 @@ class DashboardController extends Controller
         // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        return view('manajemen.pegawai', [
+        return view('manajemen.pegawai.pegawai', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -139,7 +139,7 @@ class DashboardController extends Controller
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
 
-        return view('pegawai.member', [
+        return view('pegawai.member.member', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -160,7 +160,7 @@ class DashboardController extends Controller
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
 
-        return view('pegawai.obat', [
+        return view('pegawai.obat.obat', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -181,7 +181,7 @@ class DashboardController extends Controller
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
 
-        return view('pegawai.editobat', [
+        return view('pegawai.obat.editobat', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
@@ -202,7 +202,7 @@ class DashboardController extends Controller
         // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
         // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
 
-        return view('pegawai.chat', [
+        return view('pegawai.chat.chat', [
             'companyname' => $companyname,
             // 'jumlahuser' => $jumlahuser,
             // 'jumlahcampaign' => $jumlahcampaign,
