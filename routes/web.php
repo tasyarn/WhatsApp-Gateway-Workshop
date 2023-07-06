@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
 
     Route::get('/manajemen/chat', [DashboardController::class, "indexchat"]);
     Route::get('/manajemen/setting', [DashboardController::class, "indexsetting"]);
+    Route::get('/manajemen/data-obat', [DashboardController::class, "dataobat"]);
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {
@@ -54,3 +55,6 @@ Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/pegawai/chat', [DashboardController::class, "chat"]);
 });
 
+Route::get('/manajemen/update-data-obat', function () {
+    return view('/manajemen/update-data-obat');
+});

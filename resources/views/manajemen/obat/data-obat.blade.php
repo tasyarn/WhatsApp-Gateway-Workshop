@@ -47,44 +47,27 @@
                                         <th>ID Obat</th>
                                         <th>Nama Obat</th>
                                         <th>Harga Obat</th>
+                                        <th>Stok Obat</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
+                                @foreach ($obats as $item )
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Paracetamol</td>
-                                        <td>10.000</td>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->nama_obat}}</td>
+                                        <td>{{$item->harga_obat}}</td>
+                                        <td>{{$item->stok_obat}}</td>
                                         <td>
                                             <span class="badge bg-success">Active</span></td>
-                                        <td> <div class="buttons">
+                                        <td>
+                                            <div class="buttons">
                                             <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Lansoprazole</td>
-                                        <td>12.500</td>
-                                        <td>
-                                            <span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <div class="buttons">
-                                                <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Domperidone</td>
-                                        <td>6.000</td>
-                                        <td>
-                                            <span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <div class="buttons">
-                                                <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
-                                        </td>
-                                    </tr>
                                 </tbody>
+                                @endforeach
                             </table>
                         </div>
                     </div>

@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\ChatTemplate;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Chat;
+use App\Models\Obat;
 use App\Models\User;
-use App\Models\Setting;
 use App\Models\Member;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
@@ -298,4 +299,13 @@ class DashboardController extends Controller
         $company->save();
         return back()->with('pesan', 'Setting website berhasil diperbarui');
     }
+
+    // public function dataobat(Request $request)
+    // {
+
+    //     $setting = Setting::first();
+    //     $companyname = $setting->nama_perusahaan;
+    //     $obats = Obat::all();
+    //     return view("manajemen.data-obat",compact('companyname','obats'));
+    // }
 }
