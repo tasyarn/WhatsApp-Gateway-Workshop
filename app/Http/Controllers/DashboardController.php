@@ -90,22 +90,14 @@ class DashboardController extends Controller
 
     public function pegawaimanajemen()
     {
-        $setting = Setting::first();
-        $companyname = $setting->nama_perusahaan;
-        // $jumlahuser = User::all()->where('role', 1)->count();
-        // $jumlahcampaign = Campaign::all()->count();
-        // $jumlahdanaterkumpul = Transaksi::all()->where('status_transaksi', 1)->sum('nominal_transaksi');
-        // $nominalterbanyak = Transaksi::with('user')->select('user_id', DB::raw('max(nominal_transaksi) as max'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('nominal_transaksi', 'desc')->limit(5)->get();
-        // // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('sum(nominal_transaksi) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        // $donasiterbanyak = Transaksi::with('user')->select('user_id', DB::raw('count(*) as total'))->where('status_transaksi', 1)->groupBy('user_id')->orderBy('total', 'desc')->limit(5)->get();
-        return view('manajemen.pegawai.pegawai', [
-            'companyname' => $companyname,
-            // 'jumlahuser' => $jumlahuser,
-            // 'jumlahcampaign' => $jumlahcampaign,
-            // 'jumlahdanaterkumpul' => $jumlahdanaterkumpul,
-            // 'nominalterbanyak' => $nominalterbanyak,
-            // 'donasiterbanyak' => $donasiterbanyak,
-        ]);
+            $setting = Setting::first();
+            $companyname = $setting->nama_perusahaan;
+            $pegawai = User::where('role', 1)->get();
+            return view('manajemen.pegawai',[
+                'companyname' => $companyname,
+                'pegawai' => $pegawai
+            ]);
+        
     }
 
     public function indexpegawai()

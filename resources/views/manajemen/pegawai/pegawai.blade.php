@@ -44,248 +44,97 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Email</th>
                                     <th>Phone</th>
-                                    <th>City</th>
+                                    <th>Address</th>
                                     <th>Status</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Graiden</td>
-                                    <td>vehicula.aliquet@semconsequat.co.uk</td>
-                                    <td>076 4820 8838</td>
-                                    <td>Offenburg</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Dale</td>
-                                    <td>fringilla.euismod.enim@quam.ca</td>
-                                    <td>0500 527693</td>
-                                    <td>New Quay</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Nathaniel</td>
-                                    <td>mi.Duis@diam.edu</td>
-                                    <td>(012165) 76278</td>
-                                    <td>Grumo Appula</td>
-                                    <td>
-                                        <span class="badge bg-danger">Inactive</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Darius</td>
-                                    <td>velit@nec.com</td>
-                                    <td>0309 690 7871</td>
-                                    <td>Ways</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Oleg</td>
-                                    <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                                    <td>0500 441046</td>
-                                    <td>Rossignol</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kermit</td>
-                                    <td>diam.Sed.diam@anteVivamusnon.org</td>
-                                    <td>(01653) 27844</td>
-                                    <td>Patna</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jermaine</td>
-                                    <td>sodales@nuncsit.org</td>
-                                    <td>0800 528324</td>
-                                    <td>Mold</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ferdinand</td>
-                                    <td>gravida.molestie@tinciduntadipiscing.org</td>
-                                    <td>(016977) 4107</td>
-                                    <td>Marlborough</td>
-                                    <td>
-                                        <span class="badge bg-danger">Inactive</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kuame</td>
-                                    <td>Quisque.purus@mauris.org</td>
-                                    <td>(0151) 561 8896</td>
-                                    <td>Tresigallo</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Deacon</td>
-                                    <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
-                                    <td>07740 599321</td>
-                                    <td>Karapınar</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Channing</td>
-                                    <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
-                                    <td>0845 46 49</td>
-                                    <td>Warrnambool</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Aladdin</td>
-                                    <td>sem.ut@pellentesqueafacilisis.ca</td>
-                                    <td>0800 1111</td>
-                                    <td>Bothey</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Cruz</td>
-                                    <td>non@quisturpisvitae.ca</td>
-                                    <td>07624 944915</td>
-                                    <td>Shikarpur</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Keegan</td>
-                                    <td>molestie.dapibus@condimentumDonecat.edu</td>
-                                    <td>0800 200103</td>
-                                    <td>Assen</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ray</td>
-                                    <td>placerat.eget@sagittislobortis.edu</td>
-                                    <td>(0112) 896 6829</td>
-                                    <td>Hofors</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Maxwell</td>
-                                    <td>diam@dapibus.org</td>
-                                    <td>0334 836 4028</td>
-                                    <td>Thane</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Carter</td>
-                                    <td>urna.justo.faucibus@orci.com</td>
-                                    <td>07079 826350</td>
-                                    <td>Biez</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Stone</td>
-                                    <td>velit.Aliquam.nisl@sitametrisus.com</td>
-                                    <td>0800 1111</td>
-                                    <td>Olivar</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Berk</td>
-                                    <td>fringilla.porttitor.vulputate@taciti.edu</td>
-                                    <td>(0101) 043 2822</td>
-                                    <td>Sanquhar</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Philip</td>
-                                    <td>turpis@euenimEtiam.org</td>
-                                    <td>0500 571108</td>
-                                    <td>Okara</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kibo</td>
-                                    <td>feugiat@urnajustofaucibus.co.uk</td>
-                                    <td>07624 682306</td>
-                                    <td>La Cisterna</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bruno</td>
-                                    <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
-                                    <td>07624 869434</td>
-                                    <td>Rocca d"Arce</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Leonard</td>
-                                    <td>blandit.enim.consequat@mollislectuspede.net</td>
-                                    <td>0800 1111</td>
-                                    <td>Lobbes</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Hamilton</td>
-                                    <td>mauris@diam.org</td>
-                                    <td>0800 256 8788</td>
-                                    <td>Sanzeno</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harding</td>
-                                    <td>Lorem.ipsum.dolor@etnetuset.com</td>
-                                    <td>0800 1111</td>
-                                    <td>Obaix</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Emmanuel</td>
-                                    <td>eget.lacus.Mauris@feugiatSednec.org</td>
-                                    <td>(016977) 8208</td>
-                                    <td>Saint-Remy-Geest</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            @foreach ($pegawai as $data)
+                                ;
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $data->nama_pegawai }}</td>
+                                        <td>{{ $data->no_pegawai }}</td>
+                                        <td>{{ $data->alamat_pegawai }}</td>
+                                        <td>{{$data->status}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#editpegawai{{$data->id}}">
+                                                Edit
+                                            </button>
+                                            <div class="modal fade text-left" id="editpegawai{{$data->id}}" tabindex="-1"
+                                                role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="myModalLabel33">
+                                                                Edit Pegawai
+                                                            </h4>
+                                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <form
+                                                            onsubmit="return confirm('Apakah data yang dimasukkan sudah benar?')"
+                                                            method="POST" action="/manajemen/pegawai/{{$data->id}}"
+                                                            data-parsley-validate>
+                                                            @csrf
+                                                            @method('put')
+                                                            <div class="modal-body">
+                                                                <input type="hidden" name="role" value="0" />
+                                                                <label>Nama: </label>
+                                                                <div class="form-group">
+                                                                    <input required type="text" name="nama_pegawai"
+                                                                        id="nama_pegawai" placeholder="Nama"
+                                                                        class="form-control" value="{{$data->nama_pegawai }}" />
+                                                                </div>
+                                                                <label>Nomor Pegawai: </label>
+                                                                <div class="form-group">
+                                                                    <input required type="number" name="no_pegawai"
+                                                                        id="no_pegawai" placeholder="Nomor Pegawai"
+                                                                        class="form-control" data-parsley-type="number"
+                                                                        value="{{$data->no_pegawai }}"
+                                                                        data-parsley-error-message="Masukkan format nomor telepon yang valid." />
+                                                                </div>
+                                                                <label>Alamat: </label>
+                                                                <div class="form-group">
+                                                                    <input required type="text" name="alamat_pegawai"
+                                                                        placeholder="Alamat" class="form-control"
+                                                                        id="alamat_pegawai" 
+                                                                        value="{{$data->alamat_pegawai }}"/>
+                                                                </div>
+
+                                                                <label for="status">Status: </label>
+                                                                <div class="form-group">
+                                                                    <select class="form-select" name="status" id="status">
+                                                                        <option {{$data->status=='aktif'?'selected':''}} value="aktif">Aktif</option>
+                                                                        <option  {{$data->status=='tidak aktif'?'selected':''}} value="tidak aktif">Tidak Aktif</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Close</span>
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary ml-1"
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Ubah</span>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
                         </table>
                     </div>
                 </div>
@@ -306,36 +155,26 @@
                         <i data-feather="x"></i>
                     </button>
                 </div>
-                <form method="POST" action="/admin/pegawai/tambah-pegawai" data-parsley-validate>
+                <form onsubmit="return confirm('Apakah data yang dimasukkan sudah benar?')" method="POST"
+                    action="/manajemen/inputpegawai" data-parsley-validate>
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="role" value="0" />
                         <label>Nama: </label>
                         <div class="form-group">
-                            <input required type="text" name="name" placeholder="Nama" class="form-control" />
+                            <input required type="text" name="nama_pegawai" id="nama_pegawai" placeholder="Nama"
+                                class="form-control" />
                         </div>
-                        <label>Email: </label>
+                        <label>Nomor Pegawai: </label>
                         <div class="form-group">
-                            <input required type="email" name="email" placeholder="Email" class="form-control"
-                                data-parsley-type="email" data-parsley-error-message="Masukkan format email yang valid." />
-                        </div>
-                        <label>Nomor Telepon: </label>
-                        <div class="form-group">
-                            <input required type="tel" name="phone_number" placeholder="Nomor Telepon"
+                            <input required type="number" name="no_pegawai" id="no_pegawai" placeholder="Nomor Pegawai"
                                 class="form-control" data-parsley-type="number"
                                 data-parsley-error-message="Masukkan format nomor telepon yang valid." />
                         </div>
-                        <label>Password: </label>
+                        <label>Alamat: </label>
                         <div class="form-group">
-                            <input required type="password" name="password" placeholder="Password" class="form-control"
-                                id="password" data-parsley-minlength="8"
-                                data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8." />
-                        </div>
-                        <label>Konfirmasi Password: </label>
-                        <div class="form-group">
-                            <input required type="password" name="password_confirm" placeholder="Konfirmasi Password"
-                                class="form-control" data-parsley-equalto="#password"
-                                data-parsley-error-message="Kata sandi tidak cocok." />
+                            <input required type="text" name="alamat_pegawai" placeholder="Alamat"
+                                class="form-control" id="alamat_pegawai" />
                         </div>
                     </div>
                     <div class="modal-footer">
