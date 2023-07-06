@@ -38,18 +38,13 @@
                 <div class="card-header d-flex justify-content-between">
                 </div>
                 <div class="card-body">
-                    <form class="form">
-                      <div class="row">
-                        <div class="col-md-12 col-12">
-                            <div class="form-group">
-                              <label for="tujuan">Tujuan Template</label>
-                              <input type="text" id="tujuan" class="form-control"name="tujuan">
-                            </div>
-                          </div>
+                    <form action="storeChat" method="post" enctype="multipart/form-data">
+                      @csrf
+                    <div class="row">
                         <div class="col-md-12 col-12">
                           <div class="form-group">
-                            <label for="isi">Isi Template Chat</label>
-                            <textarea class="form-control" id="isi" rows="3" name="isi"></textarea>
+                            <label for="template_chat">Isi Template Chat</label>
+                            <textarea class="form-control" id="template_chat" rows="3" name="template_chat"></textarea>
                           </div>
                         </div>
                         <div class="col-12 d-flex justify-content-end">

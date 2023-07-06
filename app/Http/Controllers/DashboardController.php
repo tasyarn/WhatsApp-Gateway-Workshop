@@ -93,7 +93,7 @@ class DashboardController extends Controller
             $setting = Setting::first();
             $companyname = $setting->nama_perusahaan;
             $pegawai = User::where('role', 1)->get();
-            return view('manajemen.pegawai',[
+            return view('manajemen.pegawai.pegawai',[
                 'companyname' => $companyname,
                 'pegawai' => $pegawai
             ]);
