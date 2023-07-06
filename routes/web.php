@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/addTemplate', [templatePesanController::class, "create"]);
 
     Route::get('/manajemen/chat', [DashboardController::class, "indexchat"]);
+    Route::get('/manajemen/setting', [DashboardController::class, "indexsetting"]);
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {

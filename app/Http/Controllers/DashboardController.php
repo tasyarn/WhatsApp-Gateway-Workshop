@@ -257,4 +257,45 @@ class DashboardController extends Controller
         $user->save();
         return back()->with('pesan', 'Kata sandi berhasil diperbarui');
     }
+
+    public function indexsetting()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $nopenerima = $setting->no_penerima_pesan;
+        $tokenfonnte = $setting->token_fonnte;
+
+        return view('manajemen.setting', [
+            'companyname' => $companyname,
+            'nopenerima' => $nopenerima,
+            'tokenfonnte' => $tokenfonnte,
+        ]);
+    }
+
+    public function updatesetting(Request $request)
+    {
+        $request->validate([
+            'namaperusahaan' => 'required|string',
+        ]);
+
+        if ($request['nopenerima'] != null) {
+            $request->validate([
+                'nopenerima' => 'numeric',
+            ]);
+        }
+
+        if ($request['tokenfonnte'] != null) {
+            $request->validate([
+                'tokenfonnte' => 'string',
+            ]);
+        }
+
+        $company = Setting::findOrFail(1);
+        $company->nama_perusahaan = $request->input('namaperusahaan');
+        $company->no_penerima_pesan = $request->input('nopenerima');
+        $company->token_fonnte = $request->input('tokenfonnte');
+
+        $company->save();
+        return back()->with('pesan', 'Setting website berhasil diperbarui');
+    }
 }
