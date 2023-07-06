@@ -22,9 +22,9 @@
                 <form action="/login" method="POST" data-parsley-validate>
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="telp" name="nouser" class="form-control form-control" placeholder="No handphone"
-                            data-parsley-type="number" data-parsley-minlength="9" data-parsley-minlength="14"
-                            data-parsley-error-message="Masukkan format no handphone yang valid.">
+                        <input type="telp" name="nouser" class="form-control form-control" placeholder="No telepon"
+                            data-parsley-type="number" data-parsley-minlength="9" data-parsley-maxlength="14"
+                            data-parsley-error-message="Masukkan format no telepon yang valid.">
                         <div class="form-control-icon">
                             <i class="bi bi-telephone"></i>
                         </div>
