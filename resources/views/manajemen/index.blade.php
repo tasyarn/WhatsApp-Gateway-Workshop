@@ -1,5 +1,4 @@
 @extends('layout.master')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 @section('title')
     Dashboard Manajemen - {{ $companyname }}
 @endsection
@@ -91,6 +90,7 @@
                             <h4>Responses Time</h4>
                         </div>
                         <div class="card-body">
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                             <canvas id="chartPerMonth" width="400" height="200"></canvas>
                             <canvas id="chartPerYear" width="400" height="200"></canvas>
 
