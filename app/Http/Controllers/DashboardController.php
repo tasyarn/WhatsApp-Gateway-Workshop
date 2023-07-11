@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chat;
-use App\Models\Obat;
+use App\Models\obat;
 use App\Models\User;
 use App\Models\Member;
 use App\Models\Setting;
@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -165,6 +166,57 @@ class DashboardController extends Controller
             // 'donasiterbanyak' => $donasiterbanyak,
         ]);
     }
+
+    public function indexobat()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $obats = obat::all();
+
+        return view('manajemen.obat.data-obat', [
+            'companyname' => $companyname,
+            'obats' => $obats
+        ]);
+    }
+
+    public function createObat()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+
+        return view('manajemen.obat.add-obat', [
+            'companyname' => $companyname,
+        ]);
+    }
+
+    public function storeObat(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama_obat'=> 'required',
+            'harga_obat'=> 'required',
+            'stok_obat'=> 'required'
+        ]);
+
+        $validatedData['ID_User'] = Auth::user()->id;
+        obat::create($validatedData);
+        $request->session()->flash('success', 'Data obat berhasil ditambahkan!');
+        return redirect('/manajemen/obat');
+    }
+
+    public function updateObat(Request $request)
+    {
+        obat::find(request('ID_obat'))->update([
+            'nama_obat' => request('nama_obat'),
+            'harga_obat' => request('harga_obat'),
+            'stok_obat' => request('stok_obat'),
+            'status' => request('status')
+        ]);
+
+        Session::flash('success', 'Data obat successfully updated.');
+        return back()->with('success', true);
+    }
+
+
 
     public function dataobat()
     {

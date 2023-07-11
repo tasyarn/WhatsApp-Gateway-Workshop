@@ -37,38 +37,116 @@
                 </div>
                 <section class="section">
                     <div class="card">
-                        <div class="card-header">
-                            Data Obat Apotek Bina Sehat
+                        <div class="card-header d-flex justify-content-between">Data Obat
+                            <a href="/manajemen/add-obat" class="btn btn-primary">Add Obat</a>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped" id="table1">
-                                <thead>
-                                    <tr>
-                                        <th>ID Obat</th>
-                                        <th>Nama Obat</th>
-                                        <th>Harga Obat</th>
-                                        <th>Stok Obat</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                @foreach ($obats as $item )
-                                <tbody>
-                                    <tr>
-                                        <td>{{$item->id}}</td>
-                                        <td>{{$item->nama_obat}}</td>
-                                        <td>{{$item->harga_obat}}</td>
-                                        <td>{{$item->stok_obat}}</td>
-                                        <td>
-                                            <span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <div class="buttons">
-                                            <a href="/manajemen/update-data-obat" class="btn btn-primary">Edit</a></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                @endforeach
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Obat</th>
+                                            <th>Nama Obat</th>
+                                            <th>Harga Obat</th>
+                                            <th>Stok Obat</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach ($obats as $item )
+                                    <tbody>
+                                        <tr>
+                                            <td>{{$item->id}}</td>
+                                            <td>{{$item->nama_obat}}</td>
+                                            <td>Rp {{number_format( $item->harga_obat)}}</td>
+                                            <td>{{$item->stok_obat}}</td>
+                                            <td>
+                                                @if ($item->status === "aktif")
+                                                <span class="badge bg-success">Aktif</span>
+                                                @else
+                                                <span class="badge bg-danger">Tidak Aktif</span>
+                                                @endif
+                                            </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#editobat{{$item->id}}">
+                                                        Edit
+                                                    </button>
+                                                    <div class="modal fade text-left" id="editobat{{$item->id}}" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                                            role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title" id="myModalLabel33">
+                                                                        Edit Obat
+                                                                    </h4>
+                                                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <form
+                                                                    onsubmit="return confirm('Apakah data yang dimasukkan sudah benar?')"
+                                                                    method="POST" action="/update-obat"
+                                                                    data-parsley-validate>
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <input type="hidden" name="ID_obat" value="{{ $item->id }}"/>
+                                                                        <label>ID Obat : </label>
+                                                                        <div class="form-group">
+                                                                            <input required type="text" name="ID_obat"
+                                                                                id="ID_obat" placeholder="{{$item->id }}"
+                                                                                class="form-control" value="{{$item->id }}" disabled />
+                                                                        </div>
+                                                                        <label>Nama Obat : </label>
+                                                                        <div class="form-group">
+                                                                            <input required type="text" name="nama_obat"
+                                                                                id="nama_obat" placeholder="{{$item->nama_obat }}"
+                                                                                class="form-control" value="{{$item->nama_obat }}"/>
+                                                                        </div>
+                                                                        <label>Harga Obat : </label>
+                                                                        <div class="form-group">
+                                                                            <input required type="text" name="harga_obat"
+                                                                                id="harga_obat" placeholder="{{$item->harga_obat }}"
+                                                                                class="form-control" value="{{$item->harga_obat }}"/>
+                                                                        </div>
+                                                                        <label>Stok Obat : </label>
+                                                                        <div class="form-group">
+                                                                            <input required type="text" name="stok_obat"
+                                                                                id="stok_obat" placeholder="{{$item->stok_obat }}"
+                                                                                class="form-control" value="{{$item->stok_obat }}"/>
+                                                                        </div>
+                                                                        <label for="status">Status : </label>
+                                                                        <div class="form-group">
+                                                                            <select class="form-select" name="status" id="status">
+                                                                                <option {{$item->status=='aktif'?'selected':''}} value="aktif">Aktif</option>
+                                                                                <option  {{$item->status=='tidak aktif'?'selected':''}} value="tidak aktif">Tidak Aktif</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Close</span>
+                                                                        </button>
+                                                                        <button type="submit" class="btn btn-primary ml-1"
+                                                                            data-bs-dismiss="modal">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Save</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                        </tr>
+                                    </tbody>
+                                    @endforeach
+                                </table>
+                            </div>
                         </div>
                     </div>
 

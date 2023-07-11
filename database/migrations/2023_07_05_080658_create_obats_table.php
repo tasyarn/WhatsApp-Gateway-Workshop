@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_obat');
             $table->string('harga_obat');
             $table->integer('stok_obat');
-            $table->string('status');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

@@ -34,19 +34,24 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     // Route::get('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
     Route::put('/manajemen/pegawai/{id}', [DashboardController::class, "editpegawai"]);
     Route::post('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
-    //     Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
-// <<<<<<< Updated upstream
+
     Route::get('/manajemen/member', [DashboardController::class, "dataPasien"]);
     Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
 
+    //chat-tasya
     Route::get('/manajemen/chat-template', [DashboardController::class, "templatemanajemen"]);
     Route::get('/manajemen/add-template', [templatePesanController::class, "create"]);
     Route::post('/manajemen/storeChat', [templatePesanController::class, "store"]);
     Route::post('/update-template', [templatePesanController::class, "update"]);
-
     Route::get('/manajemen/chat', [DashboardController::class, "indexchat"]);
+
     Route::get('/manajemen/setting', [DashboardController::class, "indexsetting"]);
-    Route::get('/manajemen/data-obat', [DashboardController::class, "dataobat"]);
+
+    //obat-sabrina
+    Route::get('/manajemen/obat', [DashboardController::class, "indexobat"]);
+    Route::get('/manajemen/add-obat', [DashboardController::class, "createObat"]);
+    Route::post('/manajemen/storeObat', [DashboardController::class, "storeObat"]);
+    Route::post('/update-obat', [DashboardController::class, "updateObat"]);
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {
