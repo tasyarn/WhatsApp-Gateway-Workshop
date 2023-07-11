@@ -40,7 +40,9 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
 
     Route::get('/manajemen/chat-template', [DashboardController::class, "templatemanajemen"]);
-    Route::get('/addTemplate', [templatePesanController::class, "create"]);
+    Route::get('/manajemen/add-template', [templatePesanController::class, "create"]);
+    Route::post('/manajemen/storeChat', [templatePesanController::class, "store"]);
+    Route::post('/update-template', [templatePesanController::class, "update"]);
 
     Route::get('/manajemen/chat', [DashboardController::class, "indexchat"]);
     Route::get('/manajemen/setting', [DashboardController::class, "indexsetting"]);

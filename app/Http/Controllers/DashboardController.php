@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\ChatTemplate;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Chat;
 use App\Models\Obat;
 use App\Models\User;
 use App\Models\Member;
 use App\Models\Setting;
+use App\Models\ChatTemplate;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
@@ -18,9 +19,32 @@ class DashboardController extends Controller
     {
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
+        // Mendapatkan data per bulan
+        $chatsPerMonth = DB::table('chats')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'), DB::raw('COUNT(*) as total'))
+            ->groupBy('month')
+            ->get();
+
+        // Mendapatkan data per tahun
+        $chatsPerYear = DB::table('chats')
+            ->select(DB::raw('YEAR(created_at) as year'), DB::raw('COUNT(*) as total'))
+            ->groupBy('year')
+            ->get();
+
+        // Memisahkan data bulan dan jumlah pesan per bulan
+        $months = $chatsPerMonth->pluck('month');
+        $messageCountsPerMonth = $chatsPerMonth->pluck('total');
+
+        // Memisahkan data tahun dan jumlah pesan per tahun
+        $years = $chatsPerYear->pluck('year');
+        $messageCountsPerYear = $chatsPerYear->pluck('total');
 
         return view('manajemen.index', [
             'companyname' => $companyname,
+            'months' => $months,
+            'messageCountsPerMonth' => $messageCountsPerMonth,
+            'years' => $years,
+            'messageCountsPerYear' => $messageCountsPerYear
         ]);
     }
 
@@ -93,7 +117,7 @@ class DashboardController extends Controller
             $setting = Setting::first();
             $companyname = $setting->nama_perusahaan;
             $pegawai = User::where('role', 1)->get();
-            return view('manajemen.pegawai',[
+            return view('manajemen.pegawai.pegawai',[
                 'companyname' => $companyname,
                 'pegawai' => $pegawai
             ]);

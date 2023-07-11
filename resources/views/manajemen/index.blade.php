@@ -90,7 +90,51 @@
                             <h4>Responses Time</h4>
                         </div>
                         <div class="card-body">
-                            <div id="bar"></div>
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                            <canvas id="chartPerMonth" width="400" height="200"></canvas>
+                            <canvas id="chartPerYear" width="400" height="200"></canvas>
+
+                            <script>
+                                // Data dari controller
+                                var months = {!! json_encode($months) !!};
+                                var messageCountsPerMonth = {!! json_encode($messageCountsPerMonth) !!};
+                                var years = {!! json_encode($years) !!};
+                                var messageCountsPerYear = {!! json_encode($messageCountsPerYear) !!};
+
+                                // Membuat grafik per bulan menggunakan Chart.js
+                                var chartPerMonthCtx = document.getElementById('chartPerMonth').getContext('2d');
+                                var chartPerMonth = new Chart(chartPerMonthCtx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: months,
+                                        datasets: [{
+                                            label: 'Jumlah Pesan per Bulan',
+                                            data: messageCountsPerMonth,
+                                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                            borderColor: 'rgba(75, 192, 192, 1)',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {}
+                                });
+
+                                // Membuat grafik per tahun menggunakan Chart.js
+                                var chartPerYearCtx = document.getElementById('chartPerYear').getContext('2d');
+                                var chartPerYear = new Chart(chartPerYearCtx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: years,
+                                        datasets: [{
+                                            label: 'Jumlah Pesan per Tahun',
+                                            data: messageCountsPerYear,
+                                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                            borderColor: 'rgba(75, 192, 192, 1)',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {}
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
