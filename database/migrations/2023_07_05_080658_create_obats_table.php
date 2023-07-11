@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('harga_obat');
             $table->integer('stok_obat');
             $table->string('status')->default('active');
+            $table->tinyInteger('1')->default('0');
             $table->timestamps();
         });
     }
