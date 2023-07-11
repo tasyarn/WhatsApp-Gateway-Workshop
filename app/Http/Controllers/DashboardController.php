@@ -281,6 +281,16 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function pembelian()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+
+        return view('pegawai.pembelian.pembelian', [
+            'companyname' => $companyname,
+        ]);
+    }
+
     public function profil()
     {
         $setting = Setting::first();

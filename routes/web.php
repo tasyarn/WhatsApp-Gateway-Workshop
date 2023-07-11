@@ -62,6 +62,7 @@ Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/pegawai/obat', [DashboardController::class, "dataobat"]);
     Route::get('/pegawai/editobat', [DashboardController::class, "editobat"]);
     Route::get('/pegawai/chat', [DashboardController::class, "chat"]);
+    Route::get('/pegawai/pembelian', [DashboardController::class, "pembelian"]);
 });
 
 Route::get('/manajemen/update-data-obat', function () {
