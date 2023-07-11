@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen/add-obat', [DashboardController::class, "createObat"]);
     Route::post('/manajemen/storeObat', [DashboardController::class, "storeObat"]);
     Route::post('/update-obat', [DashboardController::class, "updateObat"]);
+    Route::put('/riwayat-obat/{id}/archive', 'DashboardController@archive');
 });
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {
