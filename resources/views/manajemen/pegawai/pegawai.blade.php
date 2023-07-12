@@ -50,9 +50,9 @@
                                     <th>Edit</th>
                                 </tr>
                             </thead>
-                            @foreach ($pegawai as $data)
-                                ;
-                                <tbody>
+                            
+                            <tbody>
+                                    @foreach ($pegawai as $data)
                                     <tr>
                                         <td>{{ $data->nama_pegawai }}</td>
                                         <td>{{ $data->no_pegawai }}</td>
@@ -95,7 +95,7 @@
                                                                 <div class="form-group">
                                                                     <input required type="number" name="no_pegawai"
                                                                         id="no_pegawai" placeholder="Nomor Pegawai"
-                                                                        class="form-control" data-parsley-type="number"
+                                                                        class="form-control" data-parsley-type="integer"
                                                                         value="{{$data->no_pegawai }}"
                                                                         data-parsley-error-message="Masukkan format nomor telepon yang valid." />
                                                                 </div>
@@ -133,8 +133,8 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
-                            @endforeach
                         </table>
                     </div>
                 </div>
@@ -167,8 +167,8 @@
                         </div>
                         <label>Nomor Pegawai: </label>
                         <div class="form-group">
-                            <input required type="number" name="no_pegawai" id="no_pegawai" placeholder="Nomor Pegawai"
-                                class="form-control" data-parsley-type="number"
+                            <input required type="integer" name="no_pegawai" id="no_pegawai" placeholder="Nomor Pegawai"
+                                class="form-control" data-parsley-type="integer"
                                 data-parsley-error-message="Masukkan format nomor telepon yang valid." />
                         </div>
                         <label>Alamat: </label>
@@ -177,7 +177,7 @@
                                 class="form-control" id="alamat_pegawai" />
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer"> 
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Close</span>
