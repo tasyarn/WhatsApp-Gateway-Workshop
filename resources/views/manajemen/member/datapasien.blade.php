@@ -43,9 +43,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-2 d-flex justify-content-end">
+                <div class="d-flex justify-content-start">
                     <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                     <button type="delete" class="btn btn-success me-1 mb-1">Update</button>
+                    <a href="/manajemen/member" class="btn btn-light me-1 mb-1">Kembali</a>
                 </div>
             </div>
         </form>

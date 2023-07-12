@@ -380,24 +380,7 @@ class DashboardController extends Controller
 
 
 
-    function dataPasien() {
+  
 
-        $setting = Setting::first();
-        $companyname = $setting->nama_perusahaan;
-        return view("manajemen.member.datapasien",compact('companyname'));
-    }
-
-    public function datapasienpost(Request $request)
-    {
-
-        $data = $request->validate([
-            'id_users' => 'required',
-            'nama_member' => 'required|string',
-            'alamat_member' => 'required|string',
-            'no_member' => 'required|string'
-        ]);
-        Member::create($data);
-
-        return back();
-    }
+   
 }

@@ -18,24 +18,33 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
         $member = DB::table('members')->leftjoin('users','users.id','=','members.id_users')->select('members.*','users.nama')->get();
         $pegawai = User::where('role','1')->get();
-        return  view('manajemen.member',compact('companyname','member','pegawai'));
+        return  view('manajemen.member.member',compact('companyname','member','pegawai'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function dataPasien()
     {
-        //
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        return view("manajemen.member.datapasien",compact('companyname'));
     }
 
+    public function datapasienpost(Request $request)
+    {
+
+        $data = $request->validate([
+            'id_users' => 'required',
+            'nama_member' => 'required|string',
+            'alamat_member' => 'required|string',
+            'no_member' => 'required|string'
+        ]);
+        Member::create($data);
+
+        return back();
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -44,7 +53,6 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $member = Member::find($request->id)->update(['id_users'=>$request->id_users]);
         return back()->with('success','selamat pasien berhasil di tambahkan');
     }
