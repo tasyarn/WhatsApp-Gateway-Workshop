@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\templatePesanController;
-use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,8 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::put('/manajemen/pegawai/{id}', [DashboardController::class, "editpegawai"]);
     Route::post('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
 
-    Route::get('/manajemen/member', [DashboardController::class, "dataPasien"]);
+    Route::get('/manajemen/member', [MemberController::class, "index"]);
+    Route::post('/manajemen/member/tambah-pegawai-ke-pasien', [MemberController::class, "store"]);
     Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
 
     //chat-tasya

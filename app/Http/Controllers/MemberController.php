@@ -23,7 +23,7 @@ class MemberController extends Controller
         $companyname = $setting->nama_perusahaan;
         $member = DB::table('members')->leftjoin('users','users.id','=','members.id_users')->select('members.*','users.nama')->get();
         $pegawai = User::where('role','1')->get();
-        return  view('manajemen.member',compact('companyname','member','pegawai'));
+        return  view('manajemen.member.member',compact('companyname','member','pegawai'));
     }
 
     /**
