@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\templatePesanController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +34,9 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     // Route::get('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
     Route::put('/manajemen/pegawai/{id}', [DashboardController::class, "editpegawai"]);
     Route::post('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
-    //     Route::get('/manajemen/chat', [DashboardController::class, "chatmanajemen"]);
-// <<<<<<< Updated upstream
-    Route::get('/manajemen/member', [MemberController::class, "index"]);
-    Route::post('/manajemen/member', [MemberController::class, "store"])->name('pasien.store');
-    Route::get('/manajemen/member/create', [MemberController::class, "dataPasien"]);
-    Route::post('/manajemen/kirim-data-pasien', [MemberController::class, "datapasienpost"]);
+
+    Route::get('/manajemen/member', [DashboardController::class, "dataPasien"]);
+    Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
 
     //chat-tasya
     Route::get('/manajemen/chat-template', [DashboardController::class, "templatemanajemen"]);

@@ -11,10 +11,7 @@
 
     <div class="container">
         <div class="page-heading">
-            <div class="d-flex justify-content-between">
-                <h3>Data Pasien</h3>
-                <a href="/manajemen/member/create" class="btn btn-primary">Tambahkan Member</a>
-            </div>
+            <h3>Data Pasien</h3>
         </div>
         <table id="myTable" style="width:100%">
             <thead>
