@@ -8,6 +8,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class MemberController extends Controller
 {
@@ -31,9 +32,18 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'id_users' => 'required',
+            'nama_member'=> 'required',
+            'no_member'=> 'required',
+            'alamat_member'=> 'required'
+        ]);
+
+        Member::create($validatedData);
+        // $request->session()->flash('success', 'Data obat berhasil ditambahkan!');
+        return redirect('/manajemen/member');
     }
 
     /**
@@ -48,6 +58,19 @@ class MemberController extends Controller
         $member = Member::find($request->id)->update(['id_users'=>$request->id_users]);
         return back()->with('success','selamat pasien berhasil di tambahkan');
     }
+
+    public function update(Request $request)
+    {
+        Member::find(request('ID_member'))->update([
+            'nama_member' => request('nama_member'),
+            'alamat_member' => request('alamat_member'),
+            'no_member' => request('no_member')
+        ]);
+
+        Session::flash('success', 'Data obat successfully updated.');
+        return back()->with('success', true);
+    }
+
 
     /**
      * Display the specified resource.
@@ -78,10 +101,6 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

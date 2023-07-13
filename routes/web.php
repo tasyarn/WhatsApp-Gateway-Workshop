@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\templatePesanController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +39,8 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
 
     Route::get('/manajemen/member', [MemberController::class, "index"]);
     Route::post('/manajemen/member/tambah-pegawai-ke-pasien', [MemberController::class, "store"]);
-    Route::post('/manajemen/kirim-data-pasien', [DashboardController::class, "datapasienpost"]);
+    Route::post('/manajemen/tambah-member', [MemberController::class, "create"]);
+    Route::post('/update-member', [MemberController::class, "update"]);
 
     //chat-tasya
     Route::get('/manajemen/chat-template', [DashboardController::class, "templatemanajemen"]);

@@ -9,7 +9,7 @@
 @endsection
 @section('konten')
 
-            
+
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form" data-parsley-validate>
+                            <form class="form" action="/manajemen/inputpegawai" data-parsley-validate>
                                 <div class="row">
                                     <!-- <div class="col-md-6 col-12">
                                         <div class="form-group mandatory">
@@ -138,7 +138,7 @@
             </footer>
         </div>
     </div>
- 
+
 @endsection
 @section('script')
     <script src="/assets/extensions/jquery/jquery.min.js"></script>
