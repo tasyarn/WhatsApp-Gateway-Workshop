@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\templatePesanController;
 
 
@@ -34,6 +35,8 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::get('/manajemen', [DashboardController::class, "indexmanajemen"]);
     Route::get('/manajemen/pegawai', [DashboardController::class, "pegawaimanajemen"]);
     // Route::get('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
+    Route::get('/manajemen/rekap-pembelian', [PembelianController::class, "rekap_pembelian"]);
+
     Route::put('/manajemen/pegawai/{id}', [DashboardController::class, "editpegawai"]);
     Route::post('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
 
