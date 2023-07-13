@@ -49,12 +49,22 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ request()->is('manajemen/pegawai*') ? 'active' : '' }}">
+            <li class="sidebar-item {{ request()->is('manajemen/pegawai*') ? 'active' : '' }} has-sub">
                 <a href="/manajemen/pegawai" class="sidebar-link">
                     <i class="bi bi-person-fill-check"></i>
                     <span>Data Pegawai</span>
                 </a>
+                <ul class="submenu active">
+                    <li class="submenu-item {{ request()->is('/manajemen/pegawai') ? 'active' : '' }}">
+                        <a href="/manajemen/pegawai" class="submenu-link">Tambah Pegawai</a>
+                    </li>
+                    <li class="submenu-item {{ request()->is('/manajemen/pegawai/tambah-pegawai-ke-pasien') ? 'active' : '' }}">
+                        <a href="/manajemen/pegawai/tambah-pegawai-ke-pasien" class="submenu-link">Tambah Pegawai Ke member</a>
+                    </li>
+                </ul>
             </li>
+            
+
 
             <li class="sidebar-item {{ request()->is('manajemen/member*') ? 'active' : '' }}">
                 <a href="/manajemen/member" class="sidebar-link">

@@ -83,6 +83,14 @@ class MemberController extends Controller
         //
     }
 
+    public function tambah_pegawai_ke_pasien() 
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $member = Member::where('id_users','')->get();
+        $pegawai = User::where('role',1)->get();
+        return view('manajemen.member.tambah-pegawai-ke-member',compact('companyname','member','pegawai'));
+    }
     /**
      * Show the form for editing the specified resource.
      *

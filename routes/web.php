@@ -41,7 +41,8 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
     Route::post('/manajemen/inputpegawai', [DashboardController::class, "inputpegawai"]);
 
     Route::get('/manajemen/member', [MemberController::class, "index"]);
-    Route::post('/manajemen/member/tambah-pegawai-ke-pasien', [MemberController::class, "store"]);
+    Route::get('/manajemen/pegawai/tambah-pegawai-ke-pasien', [MemberController::class, "tambah_pegawai_ke_pasien"]);
+    Route::post('/manajemen/pegawai/tambah-pegawai-ke-pasien', [MemberController::class, "store"]);
     Route::post('/manajemen/tambah-member', [MemberController::class, "create"]);
     Route::post('/update-member', [MemberController::class, "update"]);
 
