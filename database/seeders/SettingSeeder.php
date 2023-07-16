@@ -17,8 +17,6 @@ class SettingSeeder extends Seeder
     {
         DB::table('settings')->insert([
             'nama_perusahaan' => 'WA Gateway',
-            'no_penerima_pesan' => '62',
-            'no_penerima_pesan_2' => '62',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

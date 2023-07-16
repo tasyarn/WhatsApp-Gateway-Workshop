@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_users');
             $table->string('nama_member');
-            $table->string('no_member');
+            $table->string('no_member')->unique();
             $table->text('alamat_member');
             $table->timestamps();
         });

@@ -62,7 +62,8 @@
                                                 <input required type="tel" class="form-control" name="nouser"
                                                     placeholder="Nomor Telepon"
                                                     value="{{ old('nouser', Auth::user()->no) }}" data-parsley-type="number"
-                                                    data-parsley-error-message="Masukkan format nomor telepon yang valid." />
+                                                    data-parsley-minlength="9" data-parsley-maxlength="14"
+                                                    data-parsley-error-message="Masukkan format no handphone yang valid." />
                                             </div>
                                             <div class="col-sm-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Ganti

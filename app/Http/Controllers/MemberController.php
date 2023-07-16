@@ -2,122 +2,172 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Member;
-use App\Models\Setting;
+use App\Models\Medicine;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
+use App\Models\Setting;
+use App\Models\Member;
+use App\Models\User;
+use App\Models\DetailMedicine;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function indexmanajemen()
     {
-        //
         $setting = Setting::first();
         $companyname = $setting->nama_perusahaan;
-        $member = DB::table('members')->leftjoin('users','users.id','=','members.id_users')->select('members.*','users.nama')->get();
-        $pegawai = User::where('role','1')->get();
-        return  view('manajemen.member.member',compact('companyname','member','pegawai'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        $validatedData = $request->validate([
-            'id_users' => 'required',
-            'nama_member'=> 'required',
-            'no_member'=> 'required',
-            'alamat_member'=> 'required'
+        $member = Member::with('user')->get();
+        $pegawai = User::where('role', 1)->get();
+        $medicine = Medicine::get();
+        return view('manajemen.member.index', [
+            'companyname' => $companyname,
+            'member' => $member,
+            'pegawai' => $pegawai,
+            'medicine' => $medicine,
         ]);
-
-        Member::create($validatedData);
-        // $request->session()->flash('success', 'Data obat berhasil ditambahkan!');
-        return redirect('/manajemen/member');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function indexpegawai()
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $member = Member::where('id_users', Auth::user()->id)->get();
+        $medicine = Medicine::get();
+        return view('pegawai.member.index', [
+            'companyname' => $companyname,
+            'member' => $member,
+            'medicine' => $medicine,
+        ]);
+    }
+
+    public function editmembermanajemen($id)
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $member = Member::where('id', $id)->first();
+        $detailmedicine = DetailMedicine::with('medicine')->where('id_members', $id)->get();
+        $medicine = Medicine::get();
+        $pegawai = User::where('role', 1)->get();
+        if ($member != null) {
+            return view('manajemen.member.edit', [
+                'companyname' => $companyname,
+                'member' => $member,
+                'detailmedicine' => $detailmedicine,
+                'medicine' => $medicine,
+                'pegawai' => $pegawai,
+            ]);
+        } else {
+            return redirect('/pegawai/member/')->with('salah', 'Bukan member Anda');
+        }
+    }
+
+    public function editmemberpegawai($id)
+    {
+        $setting = Setting::first();
+        $companyname = $setting->nama_perusahaan;
+        $member = Member::where('id_users', Auth::user()->id)->where('id', $id)->first();
+        $detailmedicine = DetailMedicine::with('medicine')->where('id_members', $id)->get();
+        $medicine = Medicine::get();
+        if ($member != null) {
+            return view('pegawai.member.edit', [
+                'companyname' => $companyname,
+                'member' => $member,
+                'detailmedicine' => $detailmedicine,
+                'medicine' => $medicine,
+            ]);
+        } else {
+            return redirect('/pegawai/member/')->with('salah', 'Bukan member Anda');
+        }
+    }
+
     public function store(Request $request)
     {
-        //
-        $member = Member::find($request->id)->update(['id_users'=>$request->id_users]);
-        return back()->with('success','selamat pasien berhasil di tambahkan');
-    }
-
-    public function update(Request $request)
-    {
-        Member::find(request('ID_member'))->update([
-            'nama_member' => request('nama_member'),
-            'alamat_member' => request('alamat_member'),
-            'no_member' => request('no_member')
+        $request->validate([
+            'id_users' => 'required',
+            'nama_member' => 'required|string',
+            'no_member' => 'required|numeric',
+            'alamat_member' => 'required|string',
+            'medicines' => 'required'
         ]);
 
-        Session::flash('success', 'Data obat successfully updated.');
-        return back()->with('success', true);
+        $member['id_users'] = $request->id_users;
+        $member['nama_member'] = $request->nama_member;
+        $member['no_member'] = $request->no_member;
+        $member['alamat_member'] = $request->alamat_member;
+
+        $countMedicines = count($request->medicines);
+
+        $checkno = Member::where('no_member', $request->input('no_member'))->first();
+        if ($checkno != null) {
+            return back()->with('salah', 'No telepon duplikat');
+        } else {
+            $createmember = Member::create($member);
+            for ($i = 0; $i < $countMedicines; $i++) {
+                $detailmedicine['id_members'] = $createmember->id;
+                $detailmedicine['id_medicines'] = $request->medicines[$i];
+
+                DetailMedicine::create($detailmedicine);
+            }
+        }
+
+        return back()->with('pesan', 'Member berhasil ditambahkan');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Member  $member
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Member $member)
+    public function ubah(Request $request)
     {
-        //
+        $data = $request->validate([
+            'iduser' => 'required',
+            'id' => 'required',
+            'namamember' => 'required|string',
+            'nomember' => 'required|numeric',
+            'alamatmember' => 'required',
+        ]);
+        $id = $request->input('id');
+        $checkno = Member::where('no_member', $request->input('nomember'))->first();
+        if ($checkno != null) {
+            if ($checkno->id == $id) {
+                $updatemember = Member::where(['id' => $id])->update([
+                    'id_users' => $request->input('iduser'),
+                    'nama_member' => $request->input('namamember'),
+                    'no_member' => $request->input('nomember'),
+                    'alamat_member' => $request->input('alamatmember'),
+                ]);
+            } else {
+                return back()->with('salah', 'No telepon duplikat');
+            }
+        } else {
+            $updatepegawai = Member::where(['id' => $id])->update([
+                'id_users' => $request->input('iduser'),
+                'nama_member' => $request->input('namamember'),
+                'no_member' => $request->input('nomember'),
+                'alamat_member' => $request->input('alamatmember'),
+            ]);
+        }
+
+        return back()->with('pesan', 'Data Member berhasil diubah');
     }
 
-    public function tambah_pegawai_ke_pasien() 
+    public function ubahobat(Request $request)
     {
-        $setting = Setting::first();
-        $companyname = $setting->nama_perusahaan;
-        $member = Member::where('id_users','')->get();
-        $pegawai = User::where('role',1)->get();
-        return view('manajemen.member.tambah-pegawai-ke-member',compact('companyname','member','pegawai'));
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Member  $member
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Member $member)
-    {
-        //
-    }
+        $data = $request->validate([
+            'idmember' => 'required',
+            'medicines' => 'required',
+        ]);
+        $id = $request->input('idmember');
+        $countMedicines = count($request->medicines);
+        $member = Member::where('id', $id)->first();
+        if ($member != null) {
+            $hapusdetailobat = DetailMedicine::where('id_members', $id)->delete();
+            for ($i = 0; $i < $countMedicines; $i++) {
+                $detailmedicine['id_members'] = $id;
+                $detailmedicine['id_medicines'] = $request->medicines[$i];
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Member  $member
-     * @return \Illuminate\Http\Response
-     */
+                DetailMedicine::create($detailmedicine);
+            }
+        } else {
+            return back()->with('salah', 'Member tidak ditemukan');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Member  $member
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Member $member)
-    {
-        //
+        return back()->with('pesan', 'Data obat berhasil diubah');
     }
 }

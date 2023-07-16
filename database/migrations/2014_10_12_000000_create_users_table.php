@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('no')->unique();
             $table->string('role');
             $table->string('password');
+            $table->integer('status')->default('1');
             $table->rememberToken();
             $table->timestamps();
         });

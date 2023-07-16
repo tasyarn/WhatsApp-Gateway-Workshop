@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('token');
             $table->string('id_medicines');
-            $table->string('transaction_id');
             $table->integer('sub_total');
             $table->timestamps();
         });

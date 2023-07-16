@@ -1,7 +1,9 @@
 @extends('layout.master')
+@section('title')
+    History Chat #{{ $member->no_member }} - {{ $companyname }}
+@endsection
 @section('style')
     <link rel="stylesheet" href="/assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
-
     <link rel="stylesheet" href="/assets/compiled/css/table-datatable-jquery.css" />
 @endsection
 @section('sidebar')
@@ -12,48 +14,40 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Chat</h3>
-
-                </div>
-                <div class="col-12 col-md-6 order-md-2 order-first">
-                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="/pegawai">Dashboard</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">
-                                Data Chat
-                            </li>
-                        </ol>
-                    </nav>
+                    <h3>History Chat</h3>
                 </div>
             </div>
         </div>
-
         <!-- Basic Tables start -->
         <section class="section">
             <div class="card">
-                <div class="card-header d-flex justify-content-between">Data Chat
+                <div class="card-header d-flex justify-content-between">History Chat  #{{ $member->no_member }}
+
                 </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table" id="table1">
                             <thead>
                                 <tr>
-                                    <th>ID Chat</th>
-                                    <th>No. Pengirim Chat</th>
-                                    <th>Isi Chat</th>
-                                    <th>Tanggal diterima</th>
+                                    <th>No</th>
+                                    <th>No Pengirim</th>
+                                    <th>No Penerima</th>
+                                    <th>Isi Pesan</th>
+                                    <th>Waktu Pesan</th>
                                 </tr>
                             </thead>
-                            @foreach ( $chats as $item )
                             <tbody>
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->no_pengirim }}</td>
-                                    <td>{{ $item->isi_pesan }}</td>
-                                    <td>{{ $item->created_at }}</td>
-                            @endforeach
+                                @foreach ($chat as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->no_pengirim }} (@if($item->no_pengirim == $nopenerima){{ $member->nama_member }}@else{{ $user->nama }}@endif)</td>
+                                        <td>{{ $item->no_penerima }} (@if($item->no_penerima == $nopenerima){{ $member->nama_member }}@else{{ $user->nama }}@endif)</td>
+                                        <td>{{ $item->isi_pesan }}</td>
+                                        <td>{{ $item->created_at }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>

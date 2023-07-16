@@ -13,4 +13,9 @@ class Medicine extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function detailmedicine()
+    {
+        return $this->hasMany(DetailMedicine::class);
+    }
 }
