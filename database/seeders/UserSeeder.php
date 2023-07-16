@@ -15,33 +15,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
-            [
-                'nama' => 'Manajemen',
-                'no' => '08123456789',
-                'role' => 0,
-                'password' => bcrypt('manajemen1234'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Pegawai',
-                'no' => '081351798490',
-                'role' => 1,
-                'password' => bcrypt('pegawai1234'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            [
-                'nama' => 'Pegawai Pegawai',
-                'no' => '085899721589',
-                'role' => 1,
-                'password' => bcrypt('pegawai1234'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ];
-        DB::table('users')->insert($users);
+        DB::table('users')->insert([
+            'nama' => 'Manajemen',
+            'no' => '08123456789',
+            'role' => 0,
+            'password' => bcrypt('manajemen1234'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }

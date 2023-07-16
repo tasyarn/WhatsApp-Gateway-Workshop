@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('nama_perusahaan');
-            $table->string('no_penerima_pesan')->nullable();
-            $table->string('token_fonnte')->nullable();
+            $table->string('no_penerima_pesan');
+            $table->string('no_penerima_pesan_2');
             $table->timestamps();
         });
     }

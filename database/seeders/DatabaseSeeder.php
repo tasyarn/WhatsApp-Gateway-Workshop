@@ -17,9 +17,5 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(SettingSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(MedicineSeeder::class);
-        $this->call(MemberSeeder::class);
-        $this->call(DetailMedicineSeeder::class);
-        $this->call(ChatTemplateSeeder::class);
     }
 }

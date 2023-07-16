@@ -39,11 +39,6 @@
                     <li>
                         <a class="dropdown-item" href="/profil"><i class="icon-mid bi bi-person me-2"></i> Profil</a>
                     </li>
-                    @if(Auth::user()->role == 0)
-                    <li>
-                        <a class="dropdown-item" href="/manajemen/setting"><i class="icon-mid bi bi-gear me-2"></i> Setting</a>
-                    </li>
-                    @endif
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
