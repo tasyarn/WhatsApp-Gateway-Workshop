@@ -25,7 +25,7 @@
                 <form action="/login" method="POST" data-parsley-validate>
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="telp" name="nouser" class="form-control form-control" placeholder="No telepon"
+                        <input required type="telp" name="nouser" class="form-control form-control" placeholder="No telepon"
                             data-parsley-type="number" data-parsley-minlength="9" data-parsley-maxlength="14"
                             data-parsley-error-message="Masukkan format no telepon yang valid.">
                         <div class="form-control-icon">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="password" name="password" class="form-control form-control" placeholder="Password"
+                        <input required type="password" name="password" class="form-control form-control" placeholder="Password"
                             data-parsley-minlength="8"
                             data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8.">
                         <div class="form-control-icon">

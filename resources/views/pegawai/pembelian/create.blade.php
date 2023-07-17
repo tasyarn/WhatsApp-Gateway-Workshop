@@ -40,7 +40,8 @@
 
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-vertical" method="POST" action="/pegawai/pembelian/store">
+                                <form class="form form-vertical" method="POST" action="/pegawai/pembelian/store"
+                                    data-parsley-validate>
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -48,21 +49,21 @@
                                                 <div class="form-group">
                                                     <label for="first-name-vertical">No telepon</label>
                                                     <input type="number" id="first-name-vertical" class="form-control"
-                                                        name="no_member" value={{ $member[0]['no_member'] }} readonly>
+                                                        name="no_member" value="{{ $member[0]['no_member'] }}" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="email-id-vertical">Nama Member</label>
                                                     <input type="text" id="email-id-vertical" class="form-control"
-                                                        name="nama_member" value={{ $member[0]['nama_member'] }} readonly>
+                                                        name="nama_member" value="{{ $member[0]['nama_member'] }}" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="email-id-vertical">Alamat</label>
                                                     <input type="text" id="email-id-vertical" class="form-control"
-                                                        name="alamat_member" value={{ $member[0]['alamat_member'] }}
+                                                        name="alamat_member" value="{{ $member[0]['alamat_member'] }}"
                                                         readonly>
                                                 </div>
                                             </div>
@@ -109,8 +110,10 @@
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="email-id-vertical">Waktu Habis Obat (Hari)</label>
-                                                    <input required type="number" min="1" class="form-control"
-                                                        name="waktu_habis" placeholder="Waktu Habis Obat">
+                                                    <input required type="number" min="1" max="90"
+                                                        class="form-control" name="waktu_habis"
+                                                        placeholder="Waktu Habis Obat"
+                                                        data-parsley-error-message="Masukkan waktu habis obat yang valid.">
                                                 </div>
                                             </div>
                                             <div class="col-12 d-flex justify-content-end">
@@ -137,4 +140,6 @@
     <script src="/assets/extensions/jquery/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
     <script src="/assets/static/js/pages/datatables.js"></script>
+    <script src="/assets/extensions/parsleyjs/parsley.min.js"></script>
+    <script src="/assets/static/js/pages/parsley.js"></script>
 @endsection

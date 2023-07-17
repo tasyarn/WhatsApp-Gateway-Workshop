@@ -31,11 +31,11 @@
                         <div class="row" id="basic-table">
                             <div class="col-12 col-md-12">
                                 <div class="card">
-                                        <!-- Table with no outer spacing -->
-                                        <div class="table-responsive">
-                                            <table class="table mb-0 table-sm">
+                                    <!-- Table with no outer spacing -->
+                                    <div class="table-responsive">
+                                        <table class="table mb-0 table-sm">
 
-                                              <tbody>
+                                            <tbody>
                                                 <tr>
                                                     <th>Tanggal Transaksi</th>
                                                     <td>:</td>
@@ -67,35 +67,37 @@
                                                     <td>{{ $transaction[0]->waktu_habis }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th colspan="2" >Nama Obat</th>
+                                                    <th colspan="2">Nama Obat</th>
                                                     <th>Sub Total</th>
                                                 </tr>
                                                 @foreach ($detailtransactions as $detailTransaction)
                                                     <tr>
                                                         <td colspan="2">{{ $detailTransaction->nama_obat }}</td>
-                                                        <td>Rp{{ number_format($detailTransaction->sub_total, 2, ',', '.') }}</td>
+                                                        <td>Rp{{ number_format($detailTransaction->sub_total, 2, ',', '.') }}
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 <tr>
                                                     <th colspan="2">Total</th>
-                                                    <td>Rp{{ number_format($transaction[0]->total_harga, 2, ',', '.') }}</td>
+                                                    <td>Rp{{ number_format($transaction[0]->total_harga, 2, ',', '.') }}
+                                                    </td>
                                                 </tr>
-                                              </tbody>
-                                            </table>
-                                        </div>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex justify-content-end">
-                                <a href="/manajemen/rekap-pembelian/" class="btn btn-primary me-1 mb-1">Kembali</a>
-                            </div>
                         </div>
-                    </section>
-                    <!-- Basic Tables end -->
+                        <div class="col-12 d-flex justify-content-end">
+                            <a href="/manajemen/rekap-pembelian/" class="btn btn-primary me-1 mb-1">Kembali</a>
+                        </div>
                 </div>
-            </div>
         </section>
         <!-- Basic Tables end -->
+    </div>
+    </div>
+    </section>
+    <!-- Basic Tables end -->
     </div>
 @endsection
 @section('script')

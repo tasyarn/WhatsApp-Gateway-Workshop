@@ -69,7 +69,8 @@
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input required type="text" class="form-control" name="namamember"
-                                                    value="{{ old('namamember', $member->nama_member) }}" />
+                                                    value="{{ old('namamember', $member->nama_member) }}"
+                                                    data-parsley-error-message="Masukkan nama member yang valid." />
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Nomor Telepon</label>
@@ -83,10 +84,11 @@
                                                     data-parsley-error-message="Masukkan format no handphone yang valid." />
                                             </div>
                                             <div class="col-md-4">
-                                                <label>Alamat Member</label>
+                                                <label>Alamat</label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <textarea required type="text" name="alamatmember" placeholder="Alamat Member" class="form-control">{{ $member->alamat_member }}</textarea>
+                                                <textarea required type="text" name="alamatmember" placeholder="Alamat Member" class="form-control"
+                                                    data-parsley-error-message="Masukkan alamat member yang valid.">{{ $member->alamat_member }}</textarea>
                                             </div>
                                             <div class="col-sm-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Ubah</button>
@@ -117,7 +119,7 @@
                                             <input type="hidden" name="idmember"
                                                 value="{{ old('idmember', $member->id) }}" />
                                             <div class="col-md-4">
-                                                <label>Obat Member</label>
+                                                <label>Obat</label>
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <select class="select2 form-select" name="medicines[]" multiple="multiple"

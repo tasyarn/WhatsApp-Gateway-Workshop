@@ -62,7 +62,7 @@
                                         <td>Rp{{ number_format($transaction->total_harga, 2, ',', '.') }}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                                href="/manajemen/rekap-pembelian/{{$transaction->token }}">Detail</a>
+                                                href="/manajemen/rekap-pembelian/{{ $transaction->token }}">Detail</a>
                                         </td>
                                     </tr>
                                 @endforeach

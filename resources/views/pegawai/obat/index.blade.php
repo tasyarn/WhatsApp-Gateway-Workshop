@@ -67,21 +67,24 @@
                                                         </div>
                                                         <div class="col-md-8 form-group">
                                                             <input type="text" id="nama_obat" class="form-control"
-                                                                name="nama_obat" placeholder="Nama Obat" required>
+                                                                name="nama_obat" placeholder="Nama Obat" required
+                                                                data-parsley-error-message="Masukkan nama obat yang valid.">
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>Harga</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
                                                             <input type="number" id="harga_obat" class="form-control"
-                                                                name="harga_obat" placeholder="Harga Obat" required>
+                                                                name="harga_obat" placeholder="Harga Obat" required
+                                                                data-parsley-error-message="Masukkan harga obat yang valid.">
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>Stok</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
                                                             <input type="number" id="stok_obat" class="form-control"
-                                                                name="stok_obat" placeholder="Stok Obat" required>
+                                                                name="stok_obat" placeholder="Stok Obat" required
+                                                                data-parsley-error-message="Masukkan stok obat yang valid.">
                                                         </div>
                                                         <div class="col-sm-12 d-flex justify-content-end">
                                                             <button type="submit" class="btn btn-primary me-1 mb-1">Tambah
@@ -145,7 +148,8 @@
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
-                                                        <form method="POST" action="/pegawai/obat/ubah">
+                                                        <form method="POST" action="/pegawai/obat/ubah"
+                                                            data-parsley-validate>
                                                             @csrf
                                                             <div class="modal-body">
                                                                 <input type="hidden" name="id"
@@ -154,20 +158,23 @@
                                                                 <div class="form-group">
                                                                     <input required type="text"
                                                                         value="{{ $medicine->nama_obat }}" name="nama"
-                                                                        placeholder="Nama Obat" class="form-control" />
+                                                                        placeholder="Nama Obat" class="form-control"
+                                                                        data-parsley-error-message="Masukkan nama obat yang valid." />
                                                                 </div>
                                                                 <label>Harga: </label>
                                                                 <div class="form-group">
                                                                     <input required type="number"
                                                                         value="{{ $medicine->harga_obat }}"
                                                                         name="harga" placeholder="Harga"
-                                                                        class="form-control" />
+                                                                        class="form-control"
+                                                                        data-parsley-error-message="Masukkan harga obat yang valid." />
                                                                 </div>
                                                                 <label>Stok: </label>
                                                                 <div class="form-group">
                                                                     <input required type="number"
                                                                         value="{{ $medicine->stok_obat }}" name="stok"
-                                                                        placeholder="Stok" class="form-control" />
+                                                                        placeholder="Stok" class="form-control"
+                                                                        data-parsley-error-message="Masukkan stok obat yang valid." />
                                                                 </div>
                                                                 <label>Status: </label>
                                                                 <div class="form-group">
@@ -211,6 +218,8 @@
 @endsection
 @section('script')
     <script src="/assets/extensions/jquery/jquery.min.js"></script>
+    <script src="/assets/extensions/parsleyjs/parsley.min.js"></script>
+    <script src="/assets/static/js/pages/parsley.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
     <script src="/assets/static/js/pages/datatables.js"></script>
 @endsection

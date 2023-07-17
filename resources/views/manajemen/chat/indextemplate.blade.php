@@ -63,7 +63,7 @@
                                     <div class="card-content">
                                         <div class="card-body">
                                             <form class="form form-horizontal" method="POST"
-                                                action="/manajemen/chat-template/store" data-parsley-validate>
+                                                action="/manajemen/chat-template/store">
                                                 @csrf
                                                 <div class="form-body">
                                                     <div class="row">
@@ -165,8 +165,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="modal fade" id="hapus{{ $item->id }}" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="hapus{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                                     role="document">
                                                     <div class="modal-content">
@@ -188,7 +189,8 @@
                                                         <form class="form form-vertical" method="POST"
                                                             action="/manajemen/chat-template/hapus">
                                                             @csrf
-                                                            <input type="hidden" name="id" value="{{ $item->id }}" />
+                                                            <input type="hidden" name="id"
+                                                                value="{{ $item->id }}" />
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-light-secondary"
                                                                     data-bs-dismiss="modal">

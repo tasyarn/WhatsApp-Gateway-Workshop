@@ -64,8 +64,8 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form class="form form-horizontal" method="POST" action="/manajemen/pegawai/store"
-                                                data-parsley-validate>
+                                            <form class="form form-horizontal" method="POST"
+                                                action="/manajemen/pegawai/store" data-parsley-validate>
                                                 @csrf
                                                 <div class="form-body">
                                                     <div class="row">
@@ -73,25 +73,25 @@
                                                             <label>Nama Pegawai</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
-                                                            <input type="text" class="form-control"
-                                                                name="nama" placeholder="Nama Pegawai" required>
+                                                            <input type="text" class="form-control" name="nama"
+                                                                placeholder="Nama Pegawai" required data-parsley-error-message="Masukkan nama pegawai yang valid.">
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>No Pegawai</label>
+                                                            <label>No Telepon</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
-                                                            <input type="tel" class="form-control"
-                                                                name="no" placeholder="No Pegawai" required data-parsley-type="number"
-                                                                data-parsley-minlength="9"
-                                                                data-parsley-maxlength="14"
+                                                            <input type="tel" class="form-control" name="no"
+                                                                placeholder="No Telepon" required data-parsley-type="number"
+                                                                data-parsley-minlength="9" data-parsley-maxlength="14"
                                                                 data-parsley-error-message="Masukkan format no telepon yang valid.">
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>Password</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
-                                                            <input type="password" class="form-control"
-                                                                name="password" placeholder="Password Pegawai" required data-parsley-minlength="8"
+                                                            <input type="password" class="form-control" name="password"
+                                                                placeholder="Password Pegawai" required
+                                                                data-parsley-minlength="8"
                                                                 data-parsley-error-message="Kata sandi harus lebih besar dari atau sama dengan 8.">
                                                         </div>
                                                         <div class="col-sm-12 d-flex justify-content-end">
@@ -158,16 +158,20 @@
                                                             data-parsley-validate>
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <input type="hidden" name="id" value="{{ $item->id }}" />
+                                                                <input type="hidden" name="id"
+                                                                    value="{{ $item->id }}" />
                                                                 <label>Nama Pegawai: </label>
                                                                 <div class="form-group">
                                                                     <input required type="text" name="nama"
-                                                                        placeholder="Nama" class="form-control" value="{{ $item->nama }}" />
+                                                                        placeholder="Nama" class="form-control"
+                                                                        value="{{ $item->nama }}"
+                                                                        data-parsley-error-message="Masukkan nama pegawai yang valid." />
                                                                 </div>
                                                                 <label>No Telepon: </label>
                                                                 <div class="form-group">
                                                                     <input required type="tel" name="no"
-                                                                        placeholder="Nomor Telepon" value="{{ $item->no }}" class="form-control"
+                                                                        placeholder="Nomor Telepon"
+                                                                        value="{{ $item->no }}" class="form-control"
                                                                         data-parsley-type="number"
                                                                         data-parsley-minlength="9"
                                                                         data-parsley-maxlength="14"
@@ -176,8 +180,12 @@
                                                                 <label>Status: </label>
                                                                 <div class="form-group">
                                                                     <select class="form-select" name="status">
-                                                                        <option value="0" @if ($item->status == 0) selected @endif>Tidak Aktif</option>
-                                                                        <option value="1" @if ($item->status == 1) selected @endif>Aktif</option>
+                                                                        <option value="0"
+                                                                            @if ($item->status == 0) selected @endif>
+                                                                            Tidak Aktif</option>
+                                                                        <option value="1"
+                                                                            @if ($item->status == 1) selected @endif>
+                                                                            Aktif</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -208,7 +216,6 @@
         </section>
         <!-- Basic Tables end -->
     </div>
-
 @endsection
 @section('script')
     <script src="/assets/extensions/jquery/jquery.min.js"></script>

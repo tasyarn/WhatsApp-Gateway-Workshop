@@ -80,7 +80,8 @@
                                                         </div>
                                                         <div class="col-md-8 form-group">
                                                             <input type="text" class="form-control" name="nama_member"
-                                                                placeholder="Nama Member" required>
+                                                                placeholder="Nama Member" required
+                                                                data-parsley-error-message="Masukkan nama member yang valid.">
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>No Telepon</label>
@@ -95,7 +96,8 @@
                                                             <label>Alamat</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
-                                                            <textarea type="text" class="form-control" name="alamat_member" placeholder="Alamat Member" required></textarea>
+                                                            <textarea type="text" class="form-control" name="alamat_member" placeholder="Alamat Member" required
+                                                                data-parsley-error-message="Masukkan alamat yang valid."></textarea>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>Obat</label>
@@ -134,7 +136,7 @@
                                     <th>No</th>
                                     <th>Nama Member</th>
                                     <th>No Telepon</th>
-                                    <th>Status</th>
+                                    <th>Alamat</th>
                                     <th>Ubah</th>
                                 </tr>
                             </thead>

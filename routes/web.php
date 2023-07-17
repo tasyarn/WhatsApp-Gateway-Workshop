@@ -21,8 +21,8 @@ use App\Http\Controllers\MemberController;
 |
 */
 
-Route::get('/', [AuthController::class, "indexlogin"])->name('login');
-Route::get('/login', [AuthController::class, "indexlogin"]);
+Route::get('/', [AuthController::class, "indexlogin"]);
+Route::get('/login', [AuthController::class, "indexlogin"])->name('login');
 Route::post('/login', [AuthController::class, "login"]);
 
 Route::get('/lupa-password', [AuthController::class, "indexlupapassword"]);
@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'role:0']], function () {
 
 Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/pegawai', [DashboardController::class, "indexpegawai"]);
+    Route::get('/pegawai/detail', [DashboardController::class, "detailpegawai"]);
     Route::get('/pegawai/chat/', [ChatController::class, "indexchatpegawai"]);
     Route::get('/pegawai/chat/{nopenerima}', [ChatController::class, "chatmemberpegawai"]);
     Route::get('/pegawai/obat', [MedicineController::class, "indexpegawai"]);

@@ -68,8 +68,8 @@
                                         <td>{{ $item->nama_member }}</td>
                                         <td>{{ $item->no_member }}</td>
                                         <td>
-                                            <a class="btn btn-primary"
-                                                href="/manajemen/chat/{{ $item->no_member }}">History Chat</a>
+                                            <a class="btn btn-primary" href="/manajemen/chat/{{ $item->no_member }}">History
+                                                Chat</a>
                                         </td>
                                     </tr>
                                 @endforeach

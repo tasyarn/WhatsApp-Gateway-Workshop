@@ -53,7 +53,8 @@
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input required type="text" class="form-control" name="nama"
-                                                    value="{{ old('nama', Auth::user()->nama) }}" />
+                                                    value="{{ old('nama', Auth::user()->nama) }}"
+                                                    data-parsley-error-message="Masukkan nama yang valid." />
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Nomor Telepon</label>

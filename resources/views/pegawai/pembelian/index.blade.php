@@ -5,6 +5,10 @@
 @section('style')
     <link rel="stylesheet" href="/assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="/assets/compiled/css/table-datatable-jquery.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+        integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/compiled/css/select2.css" />
 @endsection
 @section('sidebar')
     @include('layout.sidebar-pegawai')
@@ -64,14 +68,14 @@
                                         <div class="card-body">
                                             <form class="form form-horizontal" method="get"
                                                 action="/pegawai/pembelian/create">
-                                                {{-- @csrf --}}
+                                                @csrf
                                                 <div class="form-body">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <label>Nomor Telepon</label>
+                                                            <label>Member</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
-                                                            <input type="number" class="form-control"
+                                                            {{-- <input type="number" class="form-control"
                                                                 list="datalistOptions" id="exampleDataList"
                                                                 placeholder="Masukkan Nomor Telepon" name="no_member">
                                                             <datalist id="datalistOptions">
@@ -79,7 +83,13 @@
                                                                     <option value="{{ $member->no_member }}">
                                                                         {{ $member->nama_member }} </option>
                                                                 @endforeach
-                                                            </datalist>
+                                                            </datalist> --}}
+                                                            <select class="select2 form-select" name="no_member">
+                                                                @foreach ($members as $member)
+                                                                    <option value="{{ $member->no_member }}">
+                                                                        {{ $member->nama_member }} </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                         <div class="col-sm-12 d-flex justify-content-end">
                                                             <button type="submit"
@@ -139,4 +149,15 @@
     <script src="/assets/extensions/jquery/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
     <script src="/assets/static/js/pages/datatables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
+        integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                theme: 'bootstrap-5',
+                maximumSelectionLength: 3,
+            });
+        });
+    </script>
 @endsection

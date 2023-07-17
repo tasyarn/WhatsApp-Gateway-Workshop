@@ -3,7 +3,7 @@
     Setting Website - {{ $companyname }}
 @endsection
 @section('sidebar')
-        @include('layout.sidebar-manajemen')
+    @include('layout.sidebar-manajemen')
 @endsection
 @section('konten')
     <div class="page-heading">
@@ -43,24 +43,27 @@
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input required type="text" class="form-control" name="namaperusahaan"
-                                                    value="{{ old('namaperusahaan', $companyname) }}" />
+                                                    value="{{ old('namaperusahaan', $companyname) }}"
+                                                    data-parsley-error-message="Masukkan judul website yang valid." />
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Nomor Telepon</label>
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input type="tel" class="form-control" name="nopenerima"
-                                                    placeholder="Nomor Telepon"
-                                                    value="{{ old('nopenerima', $nopenerima) }}" data-parsley-type="number"
-                                                    data-parsley-minlength="9" data-parsley-maxlength="14"
+                                                    placeholder="Nomor Telepon" value="{{ old('nopenerima', $nopenerima) }}"
+                                                    data-parsley-type="number" data-parsley-minlength="9"
+                                                    data-parsley-maxlength="14"
                                                     data-parsley-error-message="Masukkan format no handphone yang valid." />
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Token Fonnte</label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" class="form-control" name="tokenfonnte" placeholder="Token Fonnte"
-                                                    value="{{ old('tokenfonnte', $tokenfonnte) }}" />
+                                                <input type="text" class="form-control" name="tokenfonnte"
+                                                    placeholder="Token Fonnte"
+                                                    value="{{ old('tokenfonnte', $tokenfonnte) }}"
+                                                    data-parsley-error-message="Masukkan token fonnte yang valid." />
                                             </div>
                                             <div class="col-sm-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Ganti

@@ -21,7 +21,7 @@
         <!-- Basic Tables start -->
         <section class="section">
             <div class="card">
-                <div class="card-header d-flex justify-content-between">History Chat  #{{ $member->no_member }}
+                <div class="card-header d-flex justify-content-between">History Chat #{{ $member->no_member }}
 
                 </div>
 
@@ -41,8 +41,12 @@
                                 @foreach ($chat as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->no_pengirim }} (@if($item->no_pengirim == $nopenerima){{ $member->nama_member }}@else{{ Auth::user()->nama }}@endif)</td>
-                                        <td>{{ $item->no_penerima }} (@if($item->no_penerima == $nopenerima){{ $member->nama_member }}@else{{ Auth::user()->nama }}@endif)</td>
+                                        <td>{{ $item->no_pengirim }} (@if ($item->no_pengirim == $nopenerima)
+                                                {{ $member->nama_member }}@else{{ Auth::user()->nama }}
+                                            @endif)</td>
+                                        <td>{{ $item->no_penerima }} (@if ($item->no_penerima == $nopenerima)
+                                                {{ $member->nama_member }}@else{{ Auth::user()->nama }}
+                                            @endif)</td>
                                         <td>{{ $item->isi_pesan }}</td>
                                         <td>{{ $item->created_at }}</td>
                                     </tr>
